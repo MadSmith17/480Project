@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song Recommendation - COSC 480</title>
+    <link rel="stylesheet" href="SRform.css">
+</head>
+
+<body>
+    <form id="questions">
+        <div id="mood-looking-for">
+            <label>What is the overall mood you are looking for?</label><br>
+            <input type="radio" name="mood" value="happy"> Happy
+            <input type="radio" name="mood" value="sad"> Sad
+            <input type="radio" name="mood" value="angry"> Angry
+            <input type="radio" name="mood" value="lonely"> Lonely
+            <input type="radio" name="mood" value="loved"> Loved
+            <input type="radio" name="mood" value="empowered"> Empowered
+        </div>
+        <br>
+
+        <div id="feelings-right-now">
+            <label>How are you feeling right now?</label><br>
+            <input type="radio" name="feelings" value="happy"> Happy
+            <input type="radio" name="feelings" value="sad"> Sad
+            <input type="radio" name="feelings" value="angry"> Angry
+            <input type="radio" name="feelings" value="lonely"> Lonely
+            <input type="radio" name="feelings" value="loved"> Loved
+            <input type="radio" name="feelings" value="empowered"> Empowered
+        </div>
+        <br>
+
+        <div id="mood-scale">
+            <label>Rate your mood on a scale of 1-5?</label><br>
+            <input type="number" min="1" max="5"> 
+        </div>
+        <br>
+
+        <div id="liked-artists">
+            <label>Would you like to include liked artists in this playlist?</label><br>
+            <input type="radio" name="liked-artists" value="yes"> Yes
+            <input type="radio" name="liked-artists" value="no"> No
+        </div>
+        <br>
+
+        <div id="length">
+            <label>How long would you like this playlist to be?</label><br>
+            <input type="radio" name="length" value="1-hour"> 1 Hour
+            <input type="radio" name="length" value="2-hours"> 2 Hours
+            <input type="radio" name="length" value="3-hours"> 3 Hours
+            <input type="radio" name="length" value="4-hours"> 4 Hours
+            <input type="radio" name="length" value="5-hours"> 5 Hours
+            <input type="radio" name="length" value="6-hours"> 6 Hours
+        </div>
+        <br>
+
+        <div id="genre">
+            <label>What genre would you like?</label><br>
+            <input type="radio" name="genre" value="rock"> Rock
+            <input type="radio" name="genre" value="pop"> Pop
+            <input type="radio" name="genre" value="country"> Country
+            <input type="radio" name="genre" value="alternative"> Alternative
+            <input type="radio" name="genre" value="r&b"> R&B
+        </div>
+        <br>
+
+        <div id="voice-types">
+            <label>What voice types would you like?</label><br>
+            <input type="radio" name="voice-types" value="female"> All female vocalists
+            <input type="radio" name="voice-types" value="male"> All male vocalists
+            <input type="radio" name="voice-types" value="both"> Both male and female
+        </div>
+        <br>
+
+        <input type="submit" value="Get Recommendations">
+    </form>
+</body>
+</html>
