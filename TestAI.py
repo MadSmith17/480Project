@@ -1,155 +1,92 @@
 # Maddy's Attempt
-
-import time
 import pandas as pd
+import numpy as np
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-import torch
-import torch.nn as nn
-import torch.optim as optim
+from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score
+import matplotlib.pyplot as plt
 
 # Authenticate Spotify
-client_credentials = SpotifyClientCredentials(client_id='YOUR_CLIENT_ID', client_secret='YOUR_CLIENT_SECRET')
+client_credentials = SpotifyClientCredentials(client_id='10fdaa3e01374aae924189ca712eaa23', 
+                                              client_secret='10f8bfdd848a448e87c8acf3c1cf1c20')
 sp = spotipy.Spotify(client_credentials_manager=client_credentials)
 
-mood_keywords = ['happy', 'mad', 'sad', 'love', 'calm']
-mood_labels = []
-danceability = []
-energy = []
-valence = []
-tempo = []
-liveness = []
-acousticness = []
-speechiness = []
+# Function to get track features from Spotify
+def get_track_features(track_id):
+    features = sp.audio_features([track_id])[0]
+    if features is not None:
+        return [features['danceability'], features['energy'], features['valence']]
+    return None
 
-# Collect audio features from Spotify
-for mood in mood_keywords:
-    results = sp.search(q=mood, type='track', limit=50, market='US')
-    tracks = results['tracks']['items']
+# Get track IDs for a specific mood
+def get_tracks_for_mood(mood):
+    results = sp.search(q=mood, type='track', limit=50)
+    track_ids = [track['id'] for track in results['tracks']['items']]
+    return track_ids
 
-    for track in tracks:
-        track_id = track['id']
-        
-        # Retry logic for getting audio features
-        for attempt in range(5):  # Try up to 5 times
-            try:
-                audio_features = sp.audio_features(track_id)[0]
-                if audio_features:
-                    mood_labels.append(mood_keywords.index(mood) + 1)
-                    danceability.append(audio_features['danceability'])
-                    energy.append(audio_features['energy'])
-                    valence.append(audio_features['valence'])
-                    tempo.append(audio_features['tempo'])
-                    liveness.append(audio_features['liveness'])
-                    acousticness.append(audio_features['acousticness'])
-                    speechiness.append(audio_features['speechiness'])
-                break  # Break if successful
-            except spotipy.exceptions.SpotifyException as e:
-                if e.http_status == 429:
-                    print("Rate limit hit, waiting before retrying...")
-                    time.sleep(5)  # Wait for 5 seconds before retrying
-                else:
-                    print(f"Error occurred: {e}")
-                    break  # Break the loop for other errors
+# Initialize lists to hold data
+X = []
+y = []
 
-# Create DataFrame
-data = {
-    'mood': mood_labels,
-    'danceability': danceability,
-    'energy': energy,
-    'valence': valence,
-    'tempo': tempo,
-    'liveness': liveness,
-    'acousticness': acousticness,
-    'speechiness': speechiness,
-}
-df = pd.DataFrame(data)
+# Example moods to search for
+moods = ['happy', 'sad', 'relaxed']
 
-# Balance the dataset
-min_samples = df['mood'].value_counts().min()
-df_balanced = df.groupby('mood', group_keys=False).apply(lambda x: x.sample(n=min_samples, random_state=42)).reset_index(drop=True)
+# Fetch features for each mood
+for mood in moods:
+    track_ids = get_tracks_for_mood(mood)
+    for track_id in track_ids:
+        features = get_track_features(track_id)
+        if features:
+            X.append(features)
+            y.append(mood)
 
-# Preprocess and target
-X = df_balanced[['danceability', 'energy', 'valence', 'tempo', 'liveness', 'acousticness', 'speechiness']].values  
-y = df_balanced['mood'].values  
+# Convert to numpy arrays
+X = np.array(X)
+y = np.array(y)
 
-# Create training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Convert target labels to numerical values
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
 
-# Scale features
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-
-# Convert to tensors
-X_train_tensor = torch.FloatTensor(X_train)
-y_train_tensor = torch.LongTensor(y_train - 1)  # Adjust for zero-indexing
-X_test_tensor = torch.FloatTensor(X_test)
-y_test_tensor = torch.LongTensor(y_test - 1)
+# Split the data into training, validation, and testing sets
+X_temp, X_test, y_temp, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+X_train, X_val, y_train, y_val = train_test_split(X_temp, y_temp, test_size=0.25, random_state=42)  # 0.25 x 0.8 = 0.2 of total data
 
 # Define the neural network
-class MoodNN(nn.Module):
-    def __init__(self):
-        super(MoodNN, self).__init__()
-        self.fc1 = nn.Linear(7, 64)  # Adjust input size to 7 (number of features)
-        self.fc2 = nn.Linear(64, 32)
-        self.fc3 = nn.Linear(32, 16)
-        self.fc4 = nn.Linear(16, 5)
-        self.relu = nn.ReLU()
+mlp = MLPClassifier(hidden_layer_sizes=(10,), max_iter=2000, random_state=42)
 
-    def forward(self, x):
-        x = self.relu(self.fc1(x))
-        x = self.relu(self.fc2(x))
-        x = self.relu(self.fc3(x))
-        x = self.fc4(x)
-        return x
-
-# Initialize model, criterion, and optimizer
-model = MoodNN()
-criterion = nn.CrossEntropyLoss()  # Add class weights if needed
-optimizer = optim.Adam(model.parameters(), lr=0.001)
-
-# Early stopping parameters
-early_stopping_patience = 10
-best_loss = float('inf')
-patience_counter = 0
-
-# Training loop
-num_epochs = 1000  # Set an appropriate number of epochs
-for epoch in range(num_epochs):
-    model.train()
-    optimizer.zero_grad()
+# Custom training loop to log losses
+train_losses = []
+val_losses = []
+for epoch in range(2000):
+    mlp.partial_fit(X_train, y_train, classes=np.unique(y_encoded))
     
-    outputs = model(X_train_tensor)
-    loss = criterion(outputs, y_train_tensor)
-    loss.backward()
-    optimizer.step()
-    
-    # Early stopping check
-    if loss < best_loss:
-        best_loss = loss
-        patience_counter = 0
-    else:
-        patience_counter += 1
+    # Record training loss
+    if epoch % 100 == 0:
+        train_loss = mlp.loss_
+        train_losses.append(round(train_loss, 4))  # Round the loss for readability
+        
+        # Validate on validation set
+        val_loss = np.mean(1 - mlp.predict_proba(X_val)[np.arange(len(y_val)), y_val])
+        val_losses.append(round(val_loss, 4))
 
-    # Print loss every 100 epochs
-    if (epoch + 1) % 100 == 0:
-        print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {loss.item():.4f}')
+        print(f"Epoch [{epoch}/2000], Train Loss: {train_loss}, Val Loss: {val_loss}")
 
-    # Stop training if patience is exceeded
-    if patience_counter >= early_stopping_patience:
-        print(f'Early stopping at epoch {epoch + 1}')
-        break
+# Evaluate the model on the test set
+y_pred = mlp.predict(X_test)
+test_accuracy = accuracy_score(y_test, y_pred)
+print(f"Test Accuracy: {test_accuracy:.4f}")
 
-# Evaluation
-model.eval()
-with torch.no_grad():
-    test_outputs = model(X_test_tensor)
-    _, predicted = torch.max(test_outputs, 1)
-    accuracy = (predicted == y_test_tensor).sum().item() / y_test_tensor.size(0)
-    print(f'Test Accuracy: {accuracy:.4f}')
-
-# Save the trained model's parameters to a file
-torch.save(model.state_dict(), 'mood_recommendation_model.pth')
+# Plotting the losses
+plt.figure(figsize=(10, 5))
+plt.plot(train_losses, label='Train Loss', color='blue')
+plt.plot(val_losses, label='Validation Loss', color='orange')
+plt.xlabel('Epochs (x100)')
+plt.ylabel('Loss')
+plt.title('Training and Validation Losses Over Epochs')
+plt.legend()
+plt.grid()
+plt.show()
