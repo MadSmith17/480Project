@@ -1,22 +1,64 @@
 from flask import Flask, render_template, request, jsonify
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+from dotenv import load_dotenv  # Import dotenv to load environment variables
+import os  # Import os to access environment variables
+from flask_cors import CORS
 
-# Spotify API setup
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id='10fdaa3e01374aae924189ca712eaa23',
-                                               client_secret='10f8bfdd848a448e87c8acf3c1cf1c20',
-                                               redirect_uri="http://127.0.0.1:5000/callback",
-                                               scope=["playlist-modify-public", "playlist-modify-private", "user-library-read"]))
+# Load environment variables from a .env file
+load_dotenv()
+
+# Spotify API setup with environment variables
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
+    client_id=os.getenv('SPOTIPY_CLIENT_ID'),
+    client_secret=os.getenv('SPOTIPY_CLIENT_SECRET'),
+    redirect_uri="http://127.0.0.1:5000/callback",
+    scope=["playlist-modify-public", "playlist-modify-private", "user-library-read"]
+))
 
 app = Flask(__name__)
+CORS(app)
+app.secret_key = "your_secret_key"  # Replace with a secure secret key
+app.config['SESSION_COOKIE_NAME'] = 'Spotify-Session'
+
+# Spotify API setup
+sp_oauth = SpotifyOAuth(client_id='10fdaa3e01374aae924189ca712eaa23',
+                        client_secret='10f8bfdd848a448e87c8acf3c1cf1c20',
+                        redirect_uri="http://localhost:8888/callback",
+                        scope=["playlist-modify-public", "playlist-modify-private", "user-library-read"])
 
 @app.route('/')
 def index():
+    auth_url = sp_oauth.get_authorize_url()
+    return redirect(auth_url)
+
+@app.route('/callback')
+def callback():
+    code = request.args.get('code')
+    token_info = sp_oauth.get_access_token(code)
+
+    # Save token info in session
+    session['token_info'] = token_info
+    return redirect(url_for('home'))
+
+@app.route('/home')
+def home():
+    token_info = session.get('token_info', None)
+    if not token_info:
+        return redirect('/')
+    
+    sp = spotipy.Spotify(auth=token_info['access_token'])
     return render_template('index.html')
 
 @app.route('/get_playlist', methods=['POST'])
 def get_playlist():
     try:
+        token_info = session.get('token_info', None)
+        if not token_info:
+            return jsonify({'error': 'User not authenticated'}), 401
+
+        sp = spotipy.Spotify(auth=token_info['access_token'])
+
         # Get mood from the frontend
         mood = request.json.get('mood')
         if not mood:
