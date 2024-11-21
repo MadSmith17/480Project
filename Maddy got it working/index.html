@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Mood Playlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1DB954;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #1DB954;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1ed760;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Create Your Mood Playlist</h1>
+    <p>Select your current mood, and we'll create a playlist for you!</p>
+    <form action="http://localhost:8888/mood" method="GET">
+        <label for="mood">Choose your mood:</label>
+        <select name="mood" id="mood" required>
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="relaxed">Relaxed</option>
+        </select>
+        <br>
+        <button type="submit">Generate Playlist</button>
+    </form>
+</div>
+
+</body>
+</html>
