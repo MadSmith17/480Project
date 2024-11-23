@@ -1,31 +1,25 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-from dotenv import load_dotenv  # Import dotenv to load environment variables
-import os  # Import os to access environment variables
+from dotenv import load_dotenv
+import os
 from flask_cors import CORS
 
 # Load environment variables from a .env file
 load_dotenv()
 
 # Spotify API setup with environment variables
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    client_id=os.getenv('SPOTIPY_CLIENT_ID'),
-    client_secret=os.getenv('SPOTIPY_CLIENT_SECRET'),
+sp_oauth = SpotifyOAuth(
+    client_id=os.getenv('10fdaa3e01374aae924189ca712eaa23'),
+    client_secret=os.getenv('10f8bfdd848a448e87c8acf3c1cf1c20'),
     redirect_uri="http://127.0.0.1:5000/callback",
     scope=["playlist-modify-public", "playlist-modify-private", "user-library-read"]
-))
+)
 
 app = Flask(__name__)
 CORS(app)
-app.secret_key = "your_secret_key"  # Replace with a secure secret key
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your_default_secret_key')  # Replace with your secret key
 app.config['SESSION_COOKIE_NAME'] = 'Spotify-Session'
-
-# Spotify API setup
-sp_oauth = SpotifyOAuth(client_id='10fdaa3e01374aae924189ca712eaa23',
-                        client_secret='10f8bfdd848a448e87c8acf3c1cf1c20',
-                        redirect_uri="http://localhost:8888/callback",
-                        scope=["playlist-modify-public", "playlist-modify-private", "user-library-read"])
 
 @app.route('/')
 def index():
@@ -36,7 +30,7 @@ def index():
 def callback():
     code = request.args.get('code')
     token_info = sp_oauth.get_access_token(code)
-
+    
     # Save token info in session
     session['token_info'] = token_info
     return redirect(url_for('home'))

@@ -7,14 +7,31 @@
 </head>
 <body>
     <h1>Spotify Mood Playlist Generator</h1>
-    <input type="text" id="moodInput" placeholder="Enter your mood">
+    
+    <label for="moodInput">Enter your mood:</label>
+    <input type="text" id="moodInput" placeholder="e.g., happy, sad, relaxed" required>
     <button id="getPlaylistBtn">Get Playlist</button>
     
     <div id="playlistEmbed" style="margin-top: 20px;"></div>
+    <div id="loadingMessage" style="display: none;">Generating your playlist...</div>
+    <div id="errorMessage" style="color: red; margin-top: 20px;"></div>
 
     <script>
         document.getElementById('getPlaylistBtn').addEventListener('click', function() {
             var mood = document.getElementById('moodInput').value;
+            
+            // Check if mood is entered
+            if (!mood.trim()) {
+                alert('Please enter a mood');
+                return;
+            }
+
+            // Show loading message
+            document.getElementById('loadingMessage').style.display = 'block';
+            document.getElementById('playlistEmbed').innerHTML = '';
+            document.getElementById('errorMessage').innerHTML = '';
+
+            // Send the mood to the backend
             fetch('/get_playlist', {
                 method: 'POST',
                 headers: {
@@ -24,16 +41,20 @@
             })
             .then(response => response.json())
             .then(data => {
+                // Hide loading message
+                document.getElementById('loadingMessage').style.display = 'none';
+
                 if (data.playlist_url) {
                     var playlistEmbed = `<iframe src="https://open.spotify.com/embed/playlist/${data.playlist_url.split('/').pop()}?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
                     document.getElementById('playlistEmbed').innerHTML = playlistEmbed;
                 } else {
-                    alert('Error fetching playlist: ' + data.error);
+                    document.getElementById('errorMessage').innerHTML = 'Error fetching playlist: ' + data.error;
                 }
             })
             .catch(error => {
                 console.error('Error fetching playlist:', error);
-                alert('Error fetching playlist');
+                document.getElementById('loadingMessage').style.display = 'none';
+                document.getElementById('errorMessage').innerHTML = 'Error fetching playlist. Please try again later.';
             });
         });
     </script>
