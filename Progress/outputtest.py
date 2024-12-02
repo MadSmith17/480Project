@@ -149,5 +149,3 @@ def main():
 # Run the main function
 if __name__ == "__main__":
     main()
-outputtest.py
-Displaying outputtest.py.
