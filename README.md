@@ -1,6 +1,6 @@
 # 480 Semester Project: Mood.fm
 
-<img src="Progress/moody.jpg" alt="Logo" width="300"/>
+<img src="Progress/moody.jpg" alt="Logo" width="400"/>
 *AI-generated image created using Bing Image Creator on 10-28-2024.*
 
 # Members:
