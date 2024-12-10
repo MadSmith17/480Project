@@ -155,11 +155,11 @@ The project directory includes the following:
 *These features were chosen for their relevance to mood classification.*
 
 ### Dataset and Preprocessing
-* **Dataset**:
+#### **Dataset**:
   * **Source**: [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
   * **Size**: Contains 114,000 Spotify tracks and their attributes.
     
-* **Preprocessing Steps**:
+####  **Preprocessing Steps**:
 1. **Feature Selection**:
    * Extracted key attributes required for mood classification (e.g., valence, energy, tempo, danceability).
 2. **Mood Encoding**:
