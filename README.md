@@ -122,7 +122,7 @@ The project directory includes the following:
    3. Generated Outputs:
       * Classification Report: Provides precision, recall, and F1-score for each mood category.
       * Confusion Matrices: Visualizes how well the model distinguishes between moods
-      * Accuracy and Loss graphs
+      * Accuracy and Loss graphs: 
      
 ---
 
@@ -202,14 +202,14 @@ The project directory includes the following:
 ---
 
 ## Future Considerations
-* **Web/App Integration**: The next logical step - to develop a web or mobile interface to make playlist generation user-friendly.
-* **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
-* **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
-* **Dynamic Mood Tracking**: Incorporate real-time user feedback to refine playlists dynamically.
-* **Expand Dataset**: Integrate additional datasets to include a broader range of tracks and genres.
-* **Collaborative Playlists**: Allow users to share mood-based playlists with friends.
-* **Genre Customization**: Add options for users to filter playlists by specific genres.
-* **Language Support**: Long-term goal: Expand to include multilingual song classification and recommendations.
+1. **Web/App Integration**: The next logical step - to develop a web or mobile interface to make playlist generation user-friendly.
+2. **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
+3. **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
+4. **Dynamic Mood Tracking**: Incorporate real-time user feedback to refine playlists dynamically.
+5. **Expand Dataset**: Integrate additional datasets to include a broader range of tracks and genres.
+6. **Collaborative Playlists**: Allow users to share mood-based playlists with friends.
+7. **Genre Customization**: Add options for users to filter playlists by specific genres.
+8. **Language Support**: Expand mood classification to include songs in multiple languages.
 
 ## Summary
 
@@ -219,49 +219,41 @@ Mood.fm combines machine learning and audio feature analysis to create mood-base
 
 Link to our [GoogleDrive](https://drive.google.com/file/d/1asQ54xgKQVuRjvSKScjQSjFgfoTC6d3k/view?usp=drivesdk). Google Drive has been shared with the professor.
 
+### General Reources:
+
 1. [OpenAI. Chatgpt](https://chatgpt.com/?model=gpt-4o-mini): Assisted with documentation and code generation/formatting.
+2. [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset): Kaggle Dataset
 
-2. [Spotify Web API](https://developer.spotify.com/documentation/web-api): Previously used before API access was limited.
+### Spotify-Specific Resrouces:
 
-3. [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset): Kaggle Dataset
+1. [Spotify Web API](https://developer.spotify.com/documentation/web-api): Previously used before API access was limited
+2. [Audio Features Endpoint](https://developer.spotify.com/documentation/web-api/reference/#endpoint-get-audio-features): Spotify Web API reference for audio features. 
+3. [Spotify Accessibility Guidelines](https://developer.spotify.com/documentation/accessibility): Accessibility documentation for Spotify developers.
+4. [Spotify Design Guidelines](https://developer.spotify.com/documentation/design): Design guidelines for Spotify's developer tools.
+5. [Spotify Developer Documentation](https://developer.spotify.com/): Main developer documentation.
+6. [Spotify Research](https://research.atspotify.com/): Spotify's main research page.
+7. [Spotify Engineering](https://engineering.atspotify.com/): Spotify's engineering blog.
+8. [AI Playlist Expanding (Spotify Newsroom)](https://newsroom.spotify.com/2024-09-24/ai-playlist-expanding-usa-canada-ireland-new-zealand/): **Note**: While we were working on Mood.fm, Spotify began rolling out their AI-generated playlist recommendations in September 2024, aiming for a similar goal.
 
-4. [AI Playlist Expanding (Spotify Newsroom)](https://newsroom.spotify.com/2024-09-24/ai-playlist-expanding-usa-canada-ireland-new-zealand/): **Note**: While we were working on Mood.fm, Spotify began rolling out their AI-generated playlist recommendations in September 2024, aiming for a similar goal.
+### Research Papers and Publications:
 
-5. [Automatic Music Playlist Generation via Simulation-Based Reinforcement Learning](https://research.atspotify.com/2023/07/automatic-music-playlist-generation-via-simulation-based-reinforcement-learning/): Spotify Research, July 2023.  
+1. [Automatic Music Playlist Generation via Simulation-Based Reinforcement Learning](https://research.atspotify.com/2023/07/automatic-music-playlist-generation-via-simulation-based-reinforcement-learning/): Spotify Research, July 2023.  
+2. [Shifting Consumption Towards Diverse Content via Reinforcement Learning](https://research.atspotify.com/2021/03/shifting-consumption-towards-diverse-content-via-reinforcement-learning/): Spotify Research, March 2021.
+3. [How Spotify Uses ML to Create the Future of Personalization](https://engineering.atspotify.com/2021/12/how-spotify-uses-ml-to-create-the-future-of-personalization/): Spotify Engineering, December 2021.  
+4. [Socially Motivated Music Recommendation](https://research.atspotify.com/2024/06/socially-motivated-music-recommendation/): Spotify Research, June 2024.  
+5. [Socially Motivated Music Recommendation (Publication)](https://research.atspotify.com/publications/socially-motivated-music-recommendation/): Spotify Research.
+6. [Global Music Streaming Data Reveals Robust Diurnal and Seasonal Patterns of Affective Preference](https://research.atspotify.com/publications/global-music-streaming-data-reveals-robust-diurnal-and-seasonal-patterns-of-affective-preference/): Spotify Research.
+7. [Robust Diurnal and Seasonal Patterns of Affective Preference](https://www.nature.com/articles/s41562-018-0508-z?proof=true): Nature Publication.
+8. [Shifting Affective Preferences and Patterns](https://dl.acm.org/doi/full/10.1145/3535101): ACM Digital Library.
+9. [ICWSM Article on Music and Mood Analysis](https://ojs.aaai.org/index.php/ICWSM/article/view/31359): AAAI Conference on Web and Social Media.   
+  
+### GitHub Repositories:
 
-6. [How Spotify Uses ML to Create the Future of Personalization](https://engineering.atspotify.com/2021/12/how-spotify-uses-ml-to-create-the-future-of-personalization/): Spotify Engineering, December 2021.  
+1. [Spotify Deep Learning (GitHub Repository)](https://github.com/ieeecs-ut/spotify-deep-learning): A GitHub repository for deep learning projects related to Spotify.  
+2. [GNN-in-RS (GitHub Repository)](https://github.com/wusw14/GNN-in-RS): A GitHub repository for Graph Neural Networks in Recommendation Systems.
 
-7. [Shifting Consumption Towards Diverse Content via Reinforcement Learning](https://research.atspotify.com/2021/03/shifting-consumption-towards-diverse-content-via-reinforcement-learning/): Spotify Research, March 2021.  
+### Additional Dataset:
 
-8. [Socially Motivated Music Recommendation](https://research.atspotify.com/2024/06/socially-motivated-music-recommendation/): Spotify Research, June 2024.  
+1. [Deam](https://www.kaggle.com/datasets/imsparsh/deam-mediaeval-dataset-emotional-analysis-in-music): MediaEval Database for Emotional Analysis 2017. Used in consideration of other datasets, later discarded.
 
-9. [Socially Motivated Music Recommendation (Publication)](https://research.atspotify.com/publications/socially-motivated-music-recommendation/): Spotify Research.  
-
-10. [GNN-in-RS (GitHub Repository)](https://github.com/wusw14/GNN-in-RS): A GitHub repository for Graph Neural Networks in Recommendation Systems.  
-
-11. [Global Music Streaming Data Reveals Robust Diurnal and Seasonal Patterns of Affective Preference](https://research.atspotify.com/publications/global-music-streaming-data-reveals-robust-diurnal-and-seasonal-patterns-of-affective-preference/): Spotify Research.  
-
-12. [Shifting Affective Preferences and Patterns](https://dl.acm.org/doi/full/10.1145/3535101): ACM Digital Library.  
-
-13. [Robust Diurnal and Seasonal Patterns of Affective Preference](https://www.nature.com/articles/s41562-018-0508-z?proof=true): Nature Publication.  
-
-14. [Deam](https://www.kaggle.com/datasets/imsparsh/deam-mediaeval-dataset-emotional-analysis-in-music): MediaEval Database for Emotional Analysis 2017. Used in consideration of other datasets, later discarded.
-
-15. [Spotify Deep Learning (GitHub Repository)](https://github.com/ieeecs-ut/spotify-deep-learning): A GitHub repository for deep learning projects related to Spotify.  
-
-16. [Humans & Machines: A Look Behind Spotify's Algotorial Playlists](https://engineering.atspotify.com/2023/04/humans-machines-a-look-behind-spotifys-algotorial-playlists/): Spotify Engineering, April 2023.  
-
-17. [ICWSM Article on Music and Mood Analysis](https://ojs.aaai.org/index.php/ICWSM/article/view/31359): AAAI Conference on Web and Social Media.  
-
-18. [Spotify Research](https://research.atspotify.com/): Spotify's main research page.  
-
-19. [Spotify Engineering](https://engineering.atspotify.com/): Spotify's engineering blog.  
-
-20. [Spotify Developer Documentation](https://developer.spotify.com/): Main developer documentation.  
-
-21. [Audio Features Endpoint](https://developer.spotify.com/documentation/web-api/reference/#endpoint-get-audio-features): Spotify Web API reference for audio features.  
-
-22. [Spotify Accessibility Guidelines](https://developer.spotify.com/documentation/accessibility): Accessibility documentation for Spotify developers.  
-
-23. [Spotify Design Guidelines](https://developer.spotify.com/documentation/design): Design guidelines for Spotify's developer tools.
 
