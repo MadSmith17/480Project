@@ -45,7 +45,7 @@ We aim to create a website that generates playlists of recommended songs based o
 Spotify typically recommends songs based only on what users have listened to or liked, rarely introducing new music. Mood.fm seeks to improve upon this by leveraging moods and user input to create more personalized recommendations.
 
 ### Goal:
-1. **Playlist Recommendations**: Curated by mood, genre, or favorite artist.
+1. **Playlist Recommendations**: Curated by mood.
 2. **Rating System**: Allows users to rate songs on a 5-star scale.
 3. **Mood Tracking**: Users can provide feedback on their mood after listening to songs, genres, or albums to further refine recommendations.
 
