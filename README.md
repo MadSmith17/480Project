@@ -36,4 +36,7 @@ In the main branch, these files and directories exist:
 * README.md: You are here!
 
 # References/Acknowledgments:
+[1]  Anna Aljanaki, Mohammad Soleymani, and Frans Wiering. Deam: Mediaeval database for emotional
+ analysis in music. https://www.kaggle.com/datasets/imsparsh/deam-mediaeval-dataset-emotional
+analysis-in-music, 2017. Dataset retrieved from Kaggle, as the official website was inaccessible.
 
