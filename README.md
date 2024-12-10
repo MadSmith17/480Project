@@ -132,6 +132,8 @@ The project directory includes the following:
 
 ### Step 4: Test the Model and Generate Playlists
 
+#### Testing
+
 1. Open `testing_model.ipynb`.
    
 2. Run all cells to:
