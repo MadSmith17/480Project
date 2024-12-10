@@ -155,14 +155,25 @@ The project directory includes the following:
 *These features were chosen for their relevance to mood classification.*
 
 ### Dataset and Preprocessing
-* **Dataset**: [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) - Sourced from Kaggle with 114,000 Spotify tracks.
-* **Preprocessing**:
-  1. Selected relevant features required for mood classification.
-  2. Encoded mood labels numerically
-  3. Created mood labels using thresholds (e.g. valence > 0.5 = happy)
-  4. Scaled features to improve neural network performance.
-  5. Created datasets for training and evaluation
-  6. Saved preprocessed data into `features_dataset.csv` for training and `metadata_dataset.csv` for analysis.
+* **Dataset**:
+  * **Source**: [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
+  * **Size**: Contains 114,000 Spotify tracks and their attributes.
+    
+* **Preprocessing Steps**:
+1. **Feature Selection**:
+   * Extracted key attributes required for mood classification (e.g., valence, energy, tempo, danceability).
+2. **Mood Encoding**:
+   * Encoded mood labels numerically (e.g., 1 for Happy, 2 for Sad).
+3. **Mood Label Creation**:
+   * Applied thresholds to categorize tracks into moods (e.g., valence > 0.5 = Happy).
+4. **Feature Scaling**:
+   * Scaled features to ensure consistency and improve neural network performance.
+5. **Dataset Creation**:
+   * Generated separate datasets for training and evaluation.
+6. **Data Storage**:
+   *Saved processed data into:
+      - `features_dataset.csv`: For training the neural network.
+      - `metadata_dataset.csv`: For additional analysis and metadata.
 
 ---
 
