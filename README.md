@@ -139,7 +139,7 @@ The project directory includes the following:
       * **Artists**: The song's artist(s).
       * **Album Name**: The album the song belongs to.
 4. Example User Interaction:
-   <img src="Progress/exampleoutput.jpg" alt="output" width="400"/>
+   <img src="Progress/exampleoutput.png" alt="output" width="400"/>
 5. Optional *Enhancements*:
   * **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
   * **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
