@@ -20,12 +20,12 @@
    * [Step 1: Clone the Repository](#step-1-clone-the-repository-to-your-local-machine)
    * [Step 2: Preprocess the Data (Optional)](#step-2-preprocess-the-data-optional)
    * [Step 3: Train the Neural Network (Optional)](#step-3-train-the-neural-network-optional)
-   * [Step 4: Test and Evaluate the Model](#step-4-test-and-evaluate-the-model)
-   * [Step 5: Generate Playlists](#step-5-generate-playlists)
+   * [Step 4: Test the Model and Generate Playlists](#step-4-test-the-model-and-generate-playlists)
 7. [Analysis and Model Details](#analysis-and-model-details)
    * [Dataset and Preprocessing](#dataset-and-preprocessing)
    * [Neural Network Architecture](#neural-network-architecture)
    * [Training Process](#training-process)
+   * [Model Testing and Playlist Generation](#model-testing-and-playlist-generation)
 8. [Future Considerations](#future-considerations)
 9. [References/Acknowledgments](#referencesacknowledgments)
 
@@ -94,17 +94,25 @@ The project directory includes the following:
  
 ## Steps to Run the Project:
 
-### Step 1: Clone the repository to your local machine
+### Step 1: Clone the repository
+
+1. Clone the repository to your local machine and open the project folder in VSCode.
 
 ### Step 2: Preprocess the Data (Optional)
 
-  1. Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
+1. Verify that the following files exist in the `notebooks` folder:
+   * `data_preprocessing.ipynb`
+   * `resources/dataset.csv`
+
+2. Open `data_preprocessing.ipynb`.
   
-  2. Run each cell to:
-     * Clean the raw dataset (`resources/dataset.csv`).
-     * Generate:
-         * `features_dataset.csv`: Extracted features for training the neural network. Saved in the `notebooks` directory.
-         * `metadata_dataset.csv`: Metadata for future analysis, saved in the same directory.
+3. Run all cells to:
+     * Clean the raw dataset (`resources/dataset.csv`) and save outputs:
+         * `cleaned_dataset.csv`: Preprocessed dataset with outliers removeed and features cleaned
+         * `features_dataset.csv`: Dataset containing extracted features for training. 
+         * `metadata_dataset.csv`: Metadata for analysis (track name, album)
+           
+4. Confirm the generated files are in the `notebooks` directory. 
 
 ***Note**: This step is optional as these files already exist.*
 
@@ -114,44 +122,40 @@ The project directory includes the following:
 
    1. Open `NN.ipynb`.
    
-   2. Run all cells to train the neural network using `features_dataset.csv`.
+   2. Run all cells to:
+      * Load `features_dataset.ipynb`.
+      * Train the neural network for mood clasification.
+      * Save outputs:
+        * `mood_predicting_model.pth`
+        * `label_encoder.pkl`
+        * `scaler.pkl`
    
-   3. This will overwrite `mood_prediction_model.pth` with a newly trained model.
+*This will overwrite `mood_prediction_model.pth` with a newly trained model.*
+
 ---
 
-### Step 4: Test and Evaluate the Model
+### Step 4: Test the Model and Generate Playlists
 
-   1. Open `testing_model.ipynb`.
+1. Open `testing_model.ipynb`.
    
-   2. Run all cells to
+2. Run all cells to:
+   * Normalize features using scaler.pkl.
+   * Predict moods for tracks in metadata_dataset.csv using mood_prediction_model.pth.
+   * Map numerical predictions to readable labels using label_encoder.pkl.
 
-      * Load the pre-trained model `mood_prediction_model.pth`.
-      * Evaluate the model on test data from `features_dataset.csv`.
-   
-   3. Generated Outputs:
-      
-      * Classification Report: Provides precision, recall, and F1-score for each mood category.
-      * Confusion Matrices: Visualizes how well the model distinguishes between moods
-      * Accuracy and Loss graphs: 
-     
----
+3. Review Outputs:
+   * Performance Metrics:
+     * Classification report
+     * Confusion matrix
+     * Accuracy/loss graphs.
+   * Generated Playlists: Randomized playlists based on selected mood.
+  
+4. View visualizations like our the mood distribution chart.
 
-### Step 5: Generate Playlists
-1. Open `testing_model.ipynb`
-2. Locate the playlist generation function near the end of the notebook.
-3. Run the cells to load the model `mood_prediction_model.pth` and prepare the dataset `features_dataset.csv`.
-4. Select a mood, and the function will:
-   * Filter songs based on the mood.
-   * Randomly selects songs for the playlist.
-   * Output song details (Track Name, Artist, Album).
 
-6. Example User Interaction:
+### Example User Interaction:
 
 <img src="Progress/exampleoutput.png" alt="output"/>
-
-### Additional Notes:
-* Randomization ensures that each time a playlist is generated, the results are varied, even for the same mood category.
-* Ensure the dataset and required models are properly loaded before running the playlist generation function to avoid errors.
 
 ---
 
@@ -173,11 +177,11 @@ The project directory includes the following:
 1. **Feature Selection**:
    * Extracted key attributes required for mood classification (e.g., valence, energy, tempo, danceability).
 2. **Mood Encoding**:
-   * Encoded mood labels numerically (e.g., 1 for Happy, 2 for Sad).
-3. **Mood Label Creation**:
-   * Applied thresholds to categorize tracks into moods (e.g., valence > 0.5 = Happy).
-4. **Feature Scaling**:
-   * Scaled features to ensure consistency and improve neural network performance.
+   * Assigned moods based on thresholds for valence and energy (e.g., high valence = happy).
+3. **Normalization**:
+   * Applied scaler.pkl to ensure features were on consistent scales for neural network input.
+4. **Label Mapping**:
+   * Encoded mood categories numerically and saved the mapping in label_encoder.pkl.
 5. **Dataset Creation**:
    * Generated separate datasets for training and evaluation.
 6. **Data Storage**:
@@ -192,22 +196,41 @@ The project directory includes the following:
 * **Hidden Layers**:
     * First Layer: 64 neurons, ReLU activation.
     * Second Layer: 32 neurons, ReLU activation
-* **Output Layer**: 4 neurons, representing the four mood categories (Happy, Sad, Calm, Energetic)
+* **Output Layer**: 4 neurons, representing the four mood categories: Happy, Sad, Calm, and Energetic.
 
 ---
 
 ### Training Process
-1. **Forward Pass**:
+1. **Training Dataset**: 80% training, 20% testing split.
+2. **Forward Pass**:
    * Input: Feature vector from the dataset (e.g., valence, tempo).
    * Output: Predicted probabilities for each mood category.
-2. **Loss Calculation**:
+3. **Loss Calculation**:
    * Used CrossEntropyLoss to calculate the error between predicted and actual moods.
-3. **Backpropagation**:
+4. **Backpropagation**:
    * Calculated gradients to adjust the weights of the network.
    * Optimized using Adam optimizer.
-4. **Training and Testing**:
-   * Split: 80% training, 20% testing.
+5. **Evaluation Metrics**:
    * Achieved a test accuracy of **98.68%**.
+   * Generated accuracy and loss graphs to track performance.
+
+### Model Testing and Playlist Generation
+1. **Normalization**: Scaled features in `metadata_dataset.csv` using `scaler.pkl`.
+2. **Mood Prediction**:
+  * Used mood_prediction_model.pth to classify tracks by mood.
+  * Mapped numerical predictions back to mood labels with label_encoder.pkl.
+3. **Evaluation**:
+  * Generated:
+    - Classification Report: Precision, recall, and F1-score for each mood.
+    - Confusion Matrix: Visualized mood classification accuracy.
+4. **Interactive Playlist Function**:
+  * Allows users to:
+    - Select a mood from predictions.
+    - Randomly generate playlists of up to 10 songs.
+    - View playlist details, including track name, artist, and album.
+5. **Visualization**:
+* Created a mood distribution chart showing the number of tracks per mood.
+
 
 ---
 
