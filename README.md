@@ -100,17 +100,13 @@ The project directory includes the following:
 
 ### Step 2: Preprocess the Data (Optional)
 
-1. Verify that the following files exist in the `notebooks` folder:
-   * `data_preprocessing.ipynb`
-   * `resources/dataset.csv`
-
-2. Open `data_preprocessing.ipynb`.
+1. Open `data_preprocessing.ipynb`.
   
-3. Run all cells to:
-     * Clean the raw dataset (`resources/dataset.csv`) and save outputs:
-         * `cleaned_dataset.csv`: Preprocessed dataset with outliers removed and features cleaned
-         * `features_dataset.csv`: Dataset containing extracted features for training. 
-         * `metadata_dataset.csv`: Metadata for analysis (track name, album)
+2. Run all cells to:
+     * Clean the raw dataset (`resources/dataset.csv`) and generate:
+         * `cleaned_dataset.csv`: Preprocessed dataset.
+         * `features_dataset.csv`: Extracted features for training. 
+         * `metadata_dataset.csv`: Metadata for analysis
            
 4. Confirm the generated files are in the `notebooks` directory. 
 
@@ -126,9 +122,9 @@ The project directory includes the following:
       * Load `features_dataset.csv`.
       * Train the neural network for mood clasification.
       * Save outputs:
-        * `mood_predicting_model.pth`
-        * `label_encoder.pkl`
-        * `scaler.pkl`
+        * `mood_predicting_model.pth`: Model weights
+        * `label_encoder.pkl`: Encoded mood labels
+        * `scaler.pkl`: Scaler for feature normalization
    
 *This will overwrite `mood_prediction_model.pth` with a newly trained model.*
 
@@ -140,15 +136,21 @@ The project directory includes the following:
    
 2. Run all cells to:
    * Normalize features using scaler.pkl.
-   * Predict moods for tracks in metadata_dataset.csv using mood_prediction_model.pth.
-   * Map numerical predictions to readable labels using label_encoder.pkl.
+   * Predict moods uing the saved model.
+   * Generate and print playlists based on predicted moods.
 
-3. Outputs:
-   * Performance Metrics
-   * Generated playlists
-  
-4. View visualizations like our the mood distribution chart.
+3. View:
+   * Performance Metrics: Classification report and confusion matrix
+   * Feature pairplot and distribution charts.
 
+#### Generate Playlists:
+1. Locate the function underneathe the section labeled "Playlist Generation" (at the bottom)
+2. Once running, user is prompted to input a number corresponding to a specific mood
+  * **1**: Happy
+  * **2**: Sad
+  * **3**: Calm
+  * **4**: Energetic
+4. Choose one of the above, and a playlist of (10) songs will be generated.
 
 ### Example User Interaction:
 
