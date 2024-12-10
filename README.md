@@ -79,14 +79,42 @@ The project directory includes the following:
       * A new model file (mood_prediction_model.pth) will overwrite the existing one.
 
 ### Step 4: Test and Evaluate the Model
-   * Open the `testing_model.ipynb` notebook.
-   * Execute the cells to load `mood_prediction_model.pth` and evaluate it using the preprocessed features.
-     * This step generates visual outputs such as:
-        - Classification reports
-        - Confusion matrices
-        - Accuracy and loss graphs
-## Note
-* Output: All results, including evaluation metrics, should be saved within the notebook outputs or specific folders.
+   1. Open the `testing_model.ipynb` notebook.
+   2. Run all cells to
+      * Load the pre-trained model `mood_prediction_model.pth`.
+      * Evaluate the model on test data from `features_dataset.csv`.
+   3. Generated Outputs:
+      * Classification Report: Displays model performance metrics (precision, recall, F1-score, etc.).
+      * Confusion Matrices: Matrix visualizing the model's predictions vs. actual labels
+      * Accuracy and Loss graphs: Plots tracking the model's training/testing performance
+
+ ***Output**: All results, including evaluation metrics, should be saved within the notebook outputs or specific folders.*
+
+ ### Step 5: Generate Playlists
+ 1. Run the playlist generation function:
+    * The playlist generation function is included in `testing_model.ipynb`.
+    * It uses the column `predicted_mood` from the dataset to categorize songs into mood-based playlists.
+    * The model predicts a mood label for each song based on extracted features.
+    * Songs are grouped by mood labels
+ 2. Steps to Generate a playlist:
+    * When you run the function, you'll see a list of mood options  (1, `happy`, 2. `sad`, 3. `calm`, and 4. `energetic`).
+    * Enter the number corresponding to the mood you's like to generate a playlist for.
+ 3. What Happens Next:
+    * The function filters songs from the dataset based on the selected mood
+    * It randomly selects songs to create a playlist and displays the details, including:
+      * **Track Name**: The name of the song.
+      * ** Artists**: The song's artist(s).
+      * ** Album Name**: The album the song belongs to.
+  4. **Example Output**: After selecting a mood, the program generates outputs like the following:
+
+ ### Integration Details
+ * The function uses the `predicted_mood` colunb from the processed dataset (`features_dataset.csv`) for catgorization.
+ * Randomization enssures varies results from each time you generate a playlist.
+
+### Additional Notes:
+* If you'd like to modify the function (i.e. to change the number of songs per playlist), update the logic in the script!
+* Ensure the dataset and required models are properly laoded before running the playlist generation function.
+
 
 # References/Acknowledgments:
 [1] [OpenAI. Chatgpt](https://chatgpt.com/?model=gpt-4o-mini): Gpt-4 model. Accessed: 2024
