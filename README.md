@@ -57,8 +57,8 @@ Spotify typically recommends songs based only on what users have listened to or 
 ## Project Directory:
 * **`.vscode`**: Some needed materials for Visual Studio
 * **`AllMoodPlaylist`**: This folder should be in the "Progress" folderm but is too large to be officially placed there.
-* **`NewData/notebooks`**: Our **final** working program. Run **this** one!
-* **`Progress`**: Contains all of the files we had worked on in the semester
+* **`NewData/notebooks`**: Our **final** working program. Clone and run **this** one!
+* **`Progress`**: Contains all of the files we have worked on in the semester.
 * **`README.md`**: You are here!
 
 ---
@@ -108,7 +108,7 @@ The project directory includes the following:
   
 3. Run all cells to:
      * Clean the raw dataset (`resources/dataset.csv`) and save outputs:
-         * `cleaned_dataset.csv`: Preprocessed dataset with outliers removeed and features cleaned
+         * `cleaned_dataset.csv`: Preprocessed dataset with outliers removed and features cleaned
          * `features_dataset.csv`: Dataset containing extracted features for training. 
          * `metadata_dataset.csv`: Metadata for analysis (track name, album)
            
@@ -123,7 +123,7 @@ The project directory includes the following:
    1. Open `NN.ipynb`.
    
    2. Run all cells to:
-      * Load `features_dataset.ipynb`.
+      * Load `features_dataset.csv`.
       * Train the neural network for mood clasification.
       * Save outputs:
         * `mood_predicting_model.pth`
@@ -143,12 +143,9 @@ The project directory includes the following:
    * Predict moods for tracks in metadata_dataset.csv using mood_prediction_model.pth.
    * Map numerical predictions to readable labels using label_encoder.pkl.
 
-3. Review Outputs:
-   * Performance Metrics:
-     * Classification report
-     * Confusion matrix
-     * Accuracy/loss graphs.
-   * Generated Playlists: Randomized playlists based on selected mood.
+3. Outputs:
+   * Performance Metrics
+   * Generated playlists
   
 4. View visualizations like our the mood distribution chart.
 
@@ -177,7 +174,7 @@ The project directory includes the following:
 1. **Feature Selection**:
    * Extracted key attributes required for mood classification (e.g., valence, energy, tempo, danceability).
 2. **Mood Encoding**:
-   * Assigned moods based on thresholds for valence and energy (e.g., high valence = happy).
+   * Assigned moods based on thresholds for valence and energy (e.g., valence > 0.5 = happy).
 3. **Normalization**:
    * Applied scaler.pkl to ensure features were on consistent scales for neural network input.
 4. **Label Mapping**:
@@ -211,7 +208,7 @@ The project directory includes the following:
    * Calculated gradients to adjust the weights of the network.
    * Optimized using Adam optimizer.
 5. **Evaluation Metrics**:
-   * Achieved a test accuracy of **98.68%**.
+   * Achieved a test accuracy of **99.37%**.
    * Generated accuracy and loss graphs to track performance.
 
 ### Model Testing and Playlist Generation
