@@ -36,7 +36,10 @@ In the main branch, these files and directories exist:
 * README.md: You are here!
 
 # References/Acknowledgments:
-[1]  Anna Aljanaki, Mohammad Soleymani, and Frans Wiering. Deam: Mediaeval database for emotional
+[1] OpenAI. Chatgpt: Gpt-4 model. https://chatgpt.com/?model=gpt-4o-mini, 2024. Accessed: 2024
+[2] (Spotify Web API)[https://developer.spotify.com/documentation/web-api] to access and manage Spotify's music data (before it accesibility became limited)
+[3] Pandya, Maharshi. (n.d.). (Spotify Tracks Dataset)[https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset] Kaggle. Retrieved [11/28/2024]
+[4]  Anna Aljanaki, Mohammad Soleymani, and Frans Wiering. Deam: Mediaeval database for emotional
  analysis in music. https://www.kaggle.com/datasets/imsparsh/deam-mediaeval-dataset-emotional
 analysis-in-music, 2017. Dataset retrieved from Kaggle, as the official website was inaccessible.
 
