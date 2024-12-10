@@ -9,11 +9,25 @@
 ## Table of Contents
 1. [Members](#members)
 2. [Project Overview](#project-overview)
-3. [Dataset Overview](#dataset-overview)
-4. [Files](#files)
-5. [Getting Started](#getting-started)
+   * [Why Mood.fm?](#why-moodfm)
+   * [Goal](#goal)
+   * [Challenges and Adaptations](#challenges-and-adaptations)
+3. [Project Directory](#project-directory)
+4. [Getting Started](#getting-started)
+   * [Prerequisites](#prerequisites)
+5. [Project Structure](#project-structure)
 6. [Steps to Run the Project](#steps-to-run-the-project)
-7. [References/Acknowledgments](#referencesacknowledgments)
+   * [Step 1: Clone the Repository](#step-1-clone-the-repository-to-your-local-machine)
+   * [Step 2: Preprocess the Data (Optional)](#step-2-preprocess-the-data-optional)
+   * [Step 3: Train the Neural Network (Optional)](#step-3-train-the-neural-network-optional)
+   * [Step 4: Test and Evaluate the Model](#step-4-test-and-evaluate-the-model)
+   * [Step 5: Generate Playlists](#step-5-generate-playlists)
+7. [Analysis and Model Details](#analysis-and-model-details)
+   * [Dataset and Preprocessing](#dataset-and-preprocessing)
+   * [Neural Network Architecture](#neural-network-architecture)
+   * [Training Process](#training-process)
+8. [Future Considerations](#future-considerations)
+9. [References/Acknowledgments](#referencesacknowledgments)
 
 ---
 
@@ -35,13 +49,8 @@ Spotify typically recommends songs based only on what users have listened to or 
 2. **Rating System**: Allows users to rate songs on a 5-star scale.
 3. **Mood Tracking**: Users can provide feedback on their mood after listening to songs, genres, or albums to further refine recommendations.
 
-### Notes on Progress:
+### Challenges and Adaptations:
 - Initially, we incorporated Spotify's Web API to fetch real-time music data. Unfortunately, due to recent changes in Spotify's API accessibility ([announcement](https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api), [The Verge](https://www.theverge.com/2024/12/5/24311523/spotify-locked-down-apis-developers)), we shifted to using the Kaggle dataset instead.
-
----
-
-## Dataset Overview
-We used the [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) from Kaggle.
 
 ---
 
@@ -93,7 +102,7 @@ The project directory includes the following:
       * Clean the raw dataset (`resources/dataset.csv`).
       * Generate:
          * `features_dataset.csv`: Extracted features, saved in the `notebooks` directory.
-         * `metadata_dataset.csv`: Metadata for future analysis, saved in the save directory.
+         * `metadata_dataset.csv`: Metadata for future analysis, saved in the same directory.
 
 ***Note**: This step is optional as these files already exist.*
 
@@ -119,7 +128,7 @@ The project directory includes the following:
      
 ---
 
- ### Step 5: Generate Playlists
+### Step 5: Generate Playlists
 1. Run the Playlist Generation Function:
    * Open `testing_model.ipynb`.
    * Locate the playlist generation function near the end of the notebook.
@@ -133,7 +142,7 @@ The project directory includes the following:
    * When prompted, the user selects a mood by entering the corresponding number (ex. `1` for `happy`)
 3. After Selection:
    * The function filters songs in the dataset based on the selected mood
-   * From the filtered songs, a subset is random selected to form the playlist
+   * From the filtered songs, a subset is randomly selected to form the playlist
    * Each song in the playlist is displayed with the following details:
       * **Track Name**: The name of the song.
       * **Artists**: The song's artist(s).
@@ -142,24 +151,20 @@ The project directory includes the following:
 
 <img src="Progress/exampleoutput.png" alt="output"/>
 
-5. Optional *Enhancements*:
-  * **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
-  * **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
-
 ### Additional Notes:
 * Randomization ensures that each time a playlist is generated, the results are varied, even for the same mood category.
-* Ensure the dataset and required models are properly laoded before running the playlist generation function to avoid errors.
+* Ensure the dataset and required models are properly loaded before running the playlist generation function to avoid errors.
 
 ## Analysis and Model Details
 
 ### Dataset and Preprocessing
-* **Dataset**: Sourced form Kaggle with 114,000 Spotify tracks.
+* **Dataset**: Sourced from Kaggle with 114,000 Spotify tracks.
 * **Features**: Key attributes such as valence, energy, tempo, danceablity, and more were used to classify moods.
 * **Preprocessing**:
   1. Selected relevant features required for mood classification.
   2. Encoded mood labels numerically
   3. Created mood labels using thresholds (e.g. valence > 0.5 = happy)
-  4. Scaled features to improve neaural network performance.
+  4. Scaled features to improve neural network performance.
   5. Saved preprocessed data into `features_dataset.csv` for training and `metadata_dataset.csv` for analysis.
 
 ---
@@ -188,12 +193,9 @@ The project directory includes the following:
 
 ---
 
-### Playlist Generation Process
-1. Input: User selects a mood
-2. FilteringL Songs matching the selected mood are retrieved
-3. Randomization: 10 random songs are seleted from the filtered results
-4. Output: A playlist is displaying song name, artist, and album.
-
+## Future Considerations
+  * **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
+  * **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
 
 
 # References/Acknowledgments:
