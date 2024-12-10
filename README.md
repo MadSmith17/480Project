@@ -42,6 +42,6 @@ In the main branch, these files and directories exist:
 
 [3] Pandya, Maharshi. (n.d.). [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) Kaggle. Retrieved [11/28/2024]
 
-[4]  Anna Aljanaki, Mohammad Soleymani, and Frans Wiering. [Deam](https://github.com/bbaltaxe/Music_Emotion): Mediaeval database for emotional
+[4]  Anna Aljanaki, Mohammad Soleymani, and Frans Wiering. [Deam](https://www.kaggle.com/datasets/imsparsh/deam-mediaeval-dataset-emotional-analysis-in-music): Mediaeval database for emotional
  analysis in music. , 2017. Dataset retrieved from Kaggle, as the official website was inaccessible.
 
