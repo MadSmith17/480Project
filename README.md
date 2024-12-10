@@ -40,12 +40,12 @@ Spotify typically recommends songs based only on what users have listened to or 
 
 ---
 
-### Dataset Overview
+## Dataset Overview
 We used the [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) from Kaggle.
 
 ---
 
-### Project Directory:
+## Project Directory:
 * **`.vscode`**: Some needed materials for Visual Studio
 * **`AllMoodPlaylist`**: This folder should be in the "Progress" folderm but is too large to be officially placed there.
 * **`NewData/notebooks`**: Our **final** working program. Run **this** one!
