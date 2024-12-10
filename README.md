@@ -137,22 +137,21 @@ The project directory includes the following:
 
 ### Step 4: Test the Model and Generate Playlists
 
-   1. Open `testing_model.ipynb`.
+1. Open `testing_model.ipynb`.
    
-   2. Run all cells to
-      * Load `metadata_dataset.csv`.
-      * Normalize features using `scaler.pkl`.
-      * Predict moods for the test dataset using `mood_prediction.pth`
-      * Display playlists grouped by mood.
-   
-   3. Generated Outputs:
-      * Playlist generation via interactive function with mood selection.
-      * Classification Report: Provides precision, recall, and F1-score for each mood category.
-      * Confusion Matrices: Visualizes how well the model distinguishes between moods
-      * Accuracy and Loss graphs: 
+2. Run all cells to:
+* Normalize features using scaler.pkl.
+* Predict moods for tracks in metadata_dataset.csv using mood_prediction_model.pth.
+* Map numerical predictions to readable labels using label_encoder.pkl.
+
+3. Review Outputs:
+* Performance Metrics: Classification report, confusion matrix, accuracy/loss graphs.
+* Generated Playlists: Randomized playlists based on selected mood.
+  
+4 View visualizations like our the mood distribution chart.
 
 
-6. Example User Interaction:
+### Example User Interaction:
 
 <img src="Progress/exampleoutput.png" alt="output"/>
 
@@ -176,11 +175,11 @@ The project directory includes the following:
 1. **Feature Selection**:
    * Extracted key attributes required for mood classification (e.g., valence, energy, tempo, danceability).
 2. **Mood Encoding**:
-   * Encoded mood labels numerically (e.g., 1 for Happy, 2 for Sad).
-3. **Mood Label Creation**:
-   * Applied thresholds to categorize tracks into moods (e.g., valence > 0.5 = Happy).
-4. **Feature Scaling**:
-   * Scaled features to ensure consistency and improve neural network performance.
+   * Assigned moods based on thresholds for valence and energy (e.g., high valence = happy).
+3. **Normalization**:
+   * Applied scaler.pkl to ensure features were on consistent scales for neural network input.
+4. **Label Mapping**:
+   * Encoded mood categories numerically and saved the mapping in label_encoder.pkl.
 5. **Dataset Creation**:
    * Generated separate datasets for training and evaluation.
 6. **Data Storage**:
@@ -195,22 +194,41 @@ The project directory includes the following:
 * **Hidden Layers**:
     * First Layer: 64 neurons, ReLU activation.
     * Second Layer: 32 neurons, ReLU activation
-* **Output Layer**: 4 neurons, representing the four mood categories (Happy, Sad, Calm, Energetic)
+* **Output Layer**: 4 neurons, representing the four mood categories: Happy, Sad, Calm, and Energetic.
 
 ---
 
 ### Training Process
-1. **Forward Pass**:
+1. **Training Dataset**: 80% training, 20% testing split.
+2. **Forward Pass**:
    * Input: Feature vector from the dataset (e.g., valence, tempo).
    * Output: Predicted probabilities for each mood category.
-2. **Loss Calculation**:
+3. **Loss Calculation**:
    * Used CrossEntropyLoss to calculate the error between predicted and actual moods.
-3. **Backpropagation**:
+4. **Backpropagation**:
    * Calculated gradients to adjust the weights of the network.
    * Optimized using Adam optimizer.
-4. **Training and Testing**:
-   * Split: 80% training, 20% testing.
+5. **Evaluation Metrics**:
    * Achieved a test accuracy of **98.68%**.
+   * Generated accuracy and loss graphs to track performance.
+
+### Model Testing and Playlist Generation
+1. **Normalization**: Scaled features in `metadata_dataset.csv` using `scaler.pkl`.
+2. **Mood Prediction**:
+* Used mood_prediction_model.pth to classify tracks by mood.
+* Mapped numerical predictions back to mood labels with label_encoder.pkl.
+3. **Evaluation**:
+* Generated:
+- Classification Report: Precision, recall, and F1-score for each mood.
+- Confusion Matrix: Visualized mood classification accuracy.
+4. **Interactive Playlist Function**:
+* Allows users to:
+  - Select a mood from predictions.
+  - Randomly generate playlists of up to 10 songs.
+  - View playlist details, including track name, artist, and album.
+5. **Visualization**:
+* Created a mood distribution chart showing the number of tracks per mood.
+
 
 ---
 
