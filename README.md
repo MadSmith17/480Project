@@ -54,17 +54,30 @@ The project directory includes the following:
    * `resources/dataset.csv`: Original raw dataset from Kaggle.
  
 ## Steps to Run the Project
-1. Clone the repository to your local machine
-2. Preprocess the Data (Optional, as the files have already been created)
-   * Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
-   * Run each cell to clean the raw dataset (`resources/dataset.csv`) and generate:
-    - `features_dataset.csv`: Extracted features.
-    - `metadata_dataset.csv`: Metadata for future analysis
-4. Train the Neural Network (Optional)
-   * Open the `NN.ipynb` notebook.
-   * Execute the cells to train the neural network using `features_dataset.csv` as input.
+
+### Step 1: Clone the repository to your local machine
+
+### Step 2: Preprocess the Data (Optional)
+  1. Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
+  2. Run each cell to:
+      * Clean the raw dataset (`resources/dataset.csv`).
+      * Generate `features_dataset.csv` (for training) and `metadata_dataset.csv` (for additional metadata).
+      * Outputs:
+         * `features_dataset.csv`: Extracted features, saved in the `notebooks` directory.
+         * `metadata_dataset.csv`: Metadata for future analysis, saved in the save directory.
+**Note**: This step is optional as these files already exist in this folder.
+
+### Step 3: Train the Neural Network (Optional)
+   1. Open the `NN.ipynb` notebook.
+   2. Execute the cells to train the neural network using `features_dataset.csv`.
      * This will overwrite `mood_prediction_model.pth` with a newly trained model.
-5. Test the Model
+   3. The training process:
+      * Uses extracted features as input to the model.
+      * Outputs a trained model (mood_prediction_model.pth) saved in the notebooks directory.
+   4. Output:
+      * A new model file (mood_prediction_model.pth) will overwrite the existing one.
+
+### Step 4: Test and Evaluate the Model
    * Open the `testing_model.ipynb` notebook.
    * Execute the cells to load `mood_prediction_model.pth` and evaluate it using the preprocessed features.
      * This step generates visual outputs such as:
