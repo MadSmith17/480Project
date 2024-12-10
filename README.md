@@ -101,7 +101,7 @@ The project directory includes the following:
   2. Run each cell to:
       * Clean the raw dataset (`resources/dataset.csv`).
       * Generate:
-         * `features_dataset.csv`: Extracted features for training the neural network. saved in the `notebooks` directory.
+         * `features_dataset.csv`: Extracted features for training the neural network. Saved in the `notebooks` directory.
          * `metadata_dataset.csv`: Metadata for future analysis, saved in the same directory.
 
 ***Note**: This step is optional as these files already exist.*
