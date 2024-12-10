@@ -139,13 +139,13 @@ The project directory includes the following:
 1. Open `testing_model.ipynb`.
    
 2. Run all cells to:
-  * Normalize features using scaler.pkl.
-  * Predict moods for tracks in metadata_dataset.csv using mood_prediction_model.pth.
-  * Map numerical predictions to readable labels using label_encoder.pkl.
+   * Normalize features using scaler.pkl.
+   * Predict moods for tracks in metadata_dataset.csv using mood_prediction_model.pth.
+   * Map numerical predictions to readable labels using label_encoder.pkl.
 
 3. Review Outputs:
-  * Performance Metrics: Classification report, confusion matrix, accuracy/loss graphs.
-  * Generated Playlists: Randomized playlists based on selected mood.
+   * Performance Metrics: Classification report, confusion matrix, accuracy/loss graphs.
+   * Generated Playlists: Randomized playlists based on selected mood.
   
 4. View visualizations like our the mood distribution chart.
 
