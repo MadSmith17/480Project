@@ -94,17 +94,26 @@ The project directory includes the following:
  
 ## Steps to Run the Project:
 
-### Step 1: Clone the repository to your local machine
+### Step 1: Clone the repository
+
+1. Clone the repository to your local machine and open the project folder in VSCode.
 
 ### Step 2: Preprocess the Data (Optional)
 
-  1. Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
+1. Verify that the following files exist in the `notebooks` folder:
+
+* `data_preprocessing.ipynb`
+* `resources/dataset.csv`
+
+2. Open `data_preprocessing.ipynb`.
   
-  2. Run each cell to:
-     * Clean the raw dataset (`resources/dataset.csv`).
-     * Generate:
-         * `features_dataset.csv`: Extracted features for training the neural network. Saved in the `notebooks` directory.
-         * `metadata_dataset.csv`: Metadata for future analysis, saved in the same directory.
+3. Run all cells to:
+     * Clean the raw dataset (`resources/dataset.csv`) and save outputs:
+         * `cleaned_dataset.csv`: Preprocessed dataset with outliers removeed and features cleaned
+         * `features_dataset.csv`: Dataset containing extracted features for training. 
+         * `metadata_dataset.csv`: Metadata for analysis (track name, album)
+           
+4. Confirm the generated files are in the `notebooks` directory. 
 
 ***Note**: This step is optional as these files already exist.*
 
@@ -114,44 +123,38 @@ The project directory includes the following:
 
    1. Open `NN.ipynb`.
    
-   2. Run all cells to train the neural network using `features_dataset.csv`.
+   2. Run all cells to:
+      * Load `features_dataset.ipynb`.
+      * Train the neural network for mood clasification.
+      * Save outputs:
+        * `mood_predicting_model.pth`
+        * `label_encoder.pkl`
+        * `scaler.pkl`
    
-   3. This will overwrite `mood_prediction_model.pth` with a newly trained model.
+*This will overwrite `mood_prediction_model.pth` with a newly trained model.*
+
 ---
 
-### Step 4: Test and Evaluate the Model
+### Step 4: Test the Model and Generate Playlists
 
    1. Open `testing_model.ipynb`.
    
    2. Run all cells to
-
-      * Load the pre-trained model `mood_prediction_model.pth`.
-      * Evaluate the model on test data from `features_dataset.csv`.
+      * Load `metadata_dataset.csv`.
+      * Normalize features using `scaler.pkl`.
+      * Predict moods for the test dataset using `mood_prediction.pth`
+      * Display playlists grouped by mood.
    
    3. Generated Outputs:
-      
+      * Playlist generation via interactive function with mood selection.
       * Classification Report: Provides precision, recall, and F1-score for each mood category.
       * Confusion Matrices: Visualizes how well the model distinguishes between moods
       * Accuracy and Loss graphs: 
-     
----
 
-### Step 5: Generate Playlists
-1. Open `testing_model.ipynb`
-2. Locate the playlist generation function near the end of the notebook.
-3. Run the cells to load the model `mood_prediction_model.pth` and prepare the dataset `features_dataset.csv`.
-4. Select a mood, and the function will:
-   * Filter songs based on the mood.
-   * Randomly selects songs for the playlist.
-   * Output song details (Track Name, Artist, Album).
 
 6. Example User Interaction:
 
 <img src="Progress/exampleoutput.png" alt="output"/>
-
-### Additional Notes:
-* Randomization ensures that each time a playlist is generated, the results are varied, even for the same mood category.
-* Ensure the dataset and required models are properly loaded before running the playlist generation function to avoid errors.
 
 ---
 
