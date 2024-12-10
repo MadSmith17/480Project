@@ -101,8 +101,8 @@ The project directory includes the following:
 ### Step 2: Preprocess the Data (Optional)
 
 1. Verify that the following files exist in the `notebooks` folder:
-  * `data_preprocessing.ipynb`
-  * `resources/dataset.csv`
+   * `data_preprocessing.ipynb`
+   * `resources/dataset.csv`
 
 2. Open `data_preprocessing.ipynb`.
   
