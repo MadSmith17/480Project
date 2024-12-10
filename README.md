@@ -65,7 +65,8 @@ The project directory includes the following:
       * Outputs:
          * `features_dataset.csv`: Extracted features, saved in the `notebooks` directory.
          * `metadata_dataset.csv`: Metadata for future analysis, saved in the save directory.
-**Note**: This step is optional as these files already exist in this folder.
+
+***Note**: This step is optional as these files already exist in this folder.*
 
 ### Step 3: Train the Neural Network (Optional)
    1. Open the `NN.ipynb` notebook.
