@@ -42,6 +42,5 @@ In the main branch, these files and directories exist:
 
 [3] [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) Kaggle. Retrieved [11/28/2024]
 
-[4]  Anna Aljanaki, Mohammad Soleymani, and Frans Wiering. [Deam](https://www.kaggle.com/datasets/imsparsh/deam-mediaeval-dataset-emotional-analysis-in-music): MediaEval Database for Emotional Analysis
- analysis in music. , 2017. Dataset retrieved from Kaggle, as the official website was inaccessible.
+[4] [Deam](https://www.kaggle.com/datasets/imsparsh/deam-mediaeval-dataset-emotional-analysis-in-music): MediaEval Database for Emotional Analysis 2017. Dataset retrieved from Kaggle, as the official website was inaccessible. Anna Aljanaki, Mohammad Soleymani, and Frans Wiering. 
 
