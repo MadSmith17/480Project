@@ -5,7 +5,7 @@
 * Madelyn Smith
 * Taylor Peterson
 
-Project Overview:
+# Project Overview:
 We want to create a website that creates a playlist of recommended songs based on the users current mood, genres, and/or current favorite artists. Our goal is to curate better recommended playlists than other industry leading music platforms, such as Spotify or YouTube Music. Spotify only recommends based on listened or liked songs, and very rarely recommends new songs- we hope to improve upon that.
 
 We would also like to add a rating system. Most music platforms lack the ability to rate songs based
