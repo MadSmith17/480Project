@@ -1,5 +1,4 @@
-# Mood.fm
-#### COSC 480: Neural Networks
+# Mood.fm: 480 Project
 
 <img src="Progress/moody.jpg" alt="Logo" width="400"/>
 
