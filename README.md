@@ -1,4 +1,4 @@
-# 480 Semester Project: Mood.fm
+# Mood.fm : COSC 480: Neural Networks
 
 <img src="Progress/moody.jpg" alt="Logo" width="400"/>
 
