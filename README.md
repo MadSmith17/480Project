@@ -1,4 +1,4 @@
-# Mood.fm: 480 Project
+# Mood.fm - 480 Project
 
 <img src="Progress/moody.jpg" alt="Logo" width="400"/>
 
