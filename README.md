@@ -120,8 +120,8 @@ The project directory includes the following:
       * Load the pre-trained model `mood_prediction_model.pth`.
       * Evaluate the model on test data from `features_dataset.csv`.
    3. Generated Outputs:
-      * Classification Report
-      * Confusion Matrices
+      * Classification Report: Provides precision, recall, and F1-score for each mood category.
+      * Confusion Matrices: Visualizes how well the model distinguishes between moods
       * Accuracy and Loss graphs
      
 ---
@@ -132,7 +132,7 @@ The project directory includes the following:
 3. Run the cells to load the model `mood_prediction_model.pth` and prepare the dataset `features_dataset.csv`.
 4. Select a mood, and the function will:
    * Filter songs based on the mood.
-   * Randomly select songs for a playlist.
+   * Randomly selects songs for the playlist.
    * Output song details (Track Name, Artist, Album).
 
 6. Example User Interaction:
@@ -171,7 +171,7 @@ The project directory includes the following:
 5. **Dataset Creation**:
    * Generated separate datasets for training and evaluation.
 6. **Data Storage**:
-   *Saved processed data into:
+   * Saved processed data into:
       - `features_dataset.csv`: For training the neural network.
       - `metadata_dataset.csv`: For additional analysis and metadata.
 
@@ -195,22 +195,25 @@ The project directory includes the following:
 3. **Backpropagation**:
    * Calculated gradients to adjust the weights of the network.
    * Optimized using Adam optimizer.
-4. **Training and Tetsing**:
+4. **Training and Testing**:
    * Split: 80% training, 20% testing.
    * Achieved a test accuracy of **98.68%**.
 
 ---
 
 ## Future Considerations
+* **Web/App Integration**: The next logical step - to develop a web or mobile interface to make playlist generation user-friendly.
 * **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
 * **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
 * **Dynamic Mood Tracking**: Incorporate real-time user feedback to refine playlists dynamically.
 * **Expand Dataset**: Integrate additional datasets to include a broader range of tracks and genres.
-* **Web/App Integration**: Develop a web or mobile interface to make playlist generation user-friendly.
 * **Collaborative Playlists**: Allow users to share mood-based playlists with friends.
 * **Genre Customization**: Add options for users to filter playlists by specific genres.
-* **Language Support**: Expand to include multilingual song classification and recommendations.
+* **Language Support**: Long-term goal: Expand to include multilingual song classification and recommendations.
 
+## Summary
+
+Mood.fm combines machine learning and audio feature analysis to create mood-based playlists. Unlike traditional platforms, it focuses on audio attributes like valence and energy to classify moods. When Spotify restricted API access, we adapted by utilizing publicly available datasets while preserving the core structure of our original Spotify-based model. This transition allowed us to build on the existing framework and maintain our project *vision*.
 
 # References/Acknowledgments:
 
