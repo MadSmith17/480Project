@@ -99,7 +99,9 @@ The project directory includes the following:
 ### Step 2: Preprocess the Data (Optional)
 
   1. Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
+  
   2. Run each cell to:
+     
       * Clean the raw dataset (`resources/dataset.csv`).
       * Generate:
          * `features_dataset.csv`: Extracted features for training the neural network. Saved in the `notebooks` directory.
