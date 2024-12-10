@@ -56,18 +56,18 @@ The project directory includes the following:
 ## Steps to Run the Project
 1. Clone the repository to your local machine
 2. Preprocess the Data (Optional, as the files have already been created)
-  a. Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
-  b. Run each cell to clean the raw dataset (`resources/dataset.csv`) and generate:
+   * Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
+   * Run each cell to clean the raw dataset (`resources/dataset.csv`) and generate:
     - `features_dataset.csv`: Extracted features.
     - `metadata_dataset.csv`: Metadata for future analysis
 4. Train the Neural Network (Optional)
-   a. Open the `NN.ipynb` notebook.
-   b. Execute the cells to train the neural network using `features_dataset.csv` as input.
+   * Open the `NN.ipynb` notebook.
+   * Execute the cells to train the neural network using `features_dataset.csv` as input.
      * This will overwrite `mood_prediction_model.pth` with a newly trained model.
 5. Test the Model
-  a. Open the `testing_model.ipynb` notebook.
-  b. Execute the cells to load `mood_prediction_model.pth` and evaluate it using the preprocessed features.
-    * This step generates visual outputs such as:
+   * Open the `testing_model.ipynb` notebook.
+   * Execute the cells to load `mood_prediction_model.pth` and evaluate it using the preprocessed features.
+     * This step generates visual outputs such as:
         - Classification reports
         - Confusion matrices
         - Accuracy and loss graphs
