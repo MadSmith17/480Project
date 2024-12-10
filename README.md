@@ -40,7 +40,7 @@ Spotify typically recommends songs based only on what users have listened to or 
 
 ---
 
-# Dataset Overview
+### Dataset Overview
 We used the [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) from Kaggle.
 
 ---
