@@ -145,6 +145,51 @@ The project directory includes the following:
 * Randomization ensures that each time a playlist is generated, the results are varied, even for the same mood category.
 * Ensure the dataset and required models are properly laoded before running the playlist generation function to avoid errors.
 
+## Analysis and Model Details
+
+### Dataset and Preprocessing
+* **Dataset**: Sourced form Kaggle with 114,000 Spotify tracks.
+* **Features**: Key attributes such as valence, energy, tempo, danceablity, and more were used to classify moods.
+* **Preprocessing**:
+  1. Selected relevant features required for mood classification.
+  2. Encoded mood labels numerically
+  3. Created mood labels using thresholds (e.g. valence > 0.5 = happy)
+  4. Scaled features to improve neaural network performance.
+  5. Saved preprocessed data into `features_dataset.csv` for training and `metadata_dataset.csv` for analysis.
+
+---
+
+### Neural Network Architecture:
+* **Input Layer**: 12 features
+* **Hidden Layers**:
+    * First Layer: 64 neurons, ReLU activation.
+    * Second Layer: 32 neurons, ReLU activation
+* **Output Layer**: 4 neurons, representing the four mood categories (Happy, Sad, Calm, Energetic)
+
+---
+
+### Training Process
+1. **Forward Pass**:
+   * Input: Feature vector from the dataset (e.g., valence, tempo).
+   * Output: Predicted probabilities for each mood category.
+2. **Loss Calculation**:
+   * Used CrossEntropyLoss to calculate the error between predicted and actual moods.
+3. **Backpropagation**:
+   * Calculated gradients to adjust the weights of the network.
+   * Optimized using Adam optimizer.
+4. **Training and Tetsing**:
+   * Split: 80% training, 20% testing.
+   * Achieved a test accuracy of **98.68%**.
+
+---
+
+### Playlist Generation Process
+1. Input: User selects a mood
+2. FilteringL Songs matching the selected mood are retrieved
+3. Randomization: 10 random songs are seleted from the filtered results
+4. Output: A playlist is displaying song name, artist, and album.
+
+
 
 # References/Acknowledgments:
 
