@@ -4,10 +4,25 @@
 
 *AI-generated image created using Bing Image Creator on 10-28-2024.*
 
+---
+
+## Table of Contents
+1. [Members](#members)
+2. [Project Overview](#project-overview)
+3. [Dataset Overview](#dataset-overview)
+4. [Files](#files)
+5. [Getting Started](#getting-started)
+6. [Steps to Run the Project](#steps-to-run-the-project)
+7. [References/Acknowledgments](#referencesacknowledgments)
+
+---
+
 # Members:
 * Carolina Mancina
 * Madelyn Smith
 * Taylor Peterson
+
+---
 
 # Project Overview:
 We want to create a website that creates a playlist of recommended songs based on the users current mood, genres, and/or current favorite artists. Our goal is to curate better recommended playlists than other industry leading music platforms, such as Spotify or YouTube Music. Spotify only recommends based on listened or liked songs, and very rarely recommends new songs- we hope to improve upon that.
@@ -18,8 +33,14 @@ the user rate the song on a 5-star scale. We may also ask the user how they are 
 a song, genre, album, or artist; providing a list of choices to choose from that we will create. This will
 hopefully improve our algorithm and it’s accuracy to recommend songs.
 
+### Additional Features (Had Spotify not removed access):
+1. **Rating System**: Users can rate songs on a 5-star scale, which most music platforms lack.
+2. **Mood Tracking**: We aim to improve recommendations by asking users how they feel after listening to songs, genres, or albums.
+
 # Dataset Overview
-https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset
+We used the [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) from Kaggle.
+
+---
 
 # Files
 In the main branch, these files and directories exist:
