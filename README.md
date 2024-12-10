@@ -17,7 +17,7 @@
    * [Prerequisites](#prerequisites)
 5. [Project Structure](#project-structure)
 6. [Steps to Run the Project](#steps-to-run-the-project)
-   * [Step 1: Clone the Repository](#step-1-clone-the-repository-to-your-local-machine)
+   * [Step 1: Clone the Repository](#step-1-clone-the-repository)
    * [Step 2: Preprocess the Data (Optional)](#step-2-preprocess-the-data-optional)
    * [Step 3: Train the Neural Network (Optional)](#step-3-train-the-neural-network-optional)
    * [Step 4: Test the Model and Generate Playlists](#step-4-test-the-model-and-generate-playlists)
