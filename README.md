@@ -136,8 +136,8 @@ The project directory includes the following:
    * From the filtered songs, a subset is random selected to form the playlist
    * Each song in the playlist is displayed with the following details:
       * **Track Name**: The name of the song.
-      * ** Artists**: The song's artist(s).
-      * ** Album Name**: The album the song belongs to.
+      * **Artists**: The song's artist(s).
+      * **Album Name**: The album the song belongs to.
 4. Example User Interaction:
 5. Optional *Enhancements*:
   * **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
