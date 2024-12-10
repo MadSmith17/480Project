@@ -21,12 +21,6 @@ hopefully improve our algorithm and it’s accuracy to recommend songs.
 # Dataset Overview
 https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset
 
-# Getting Started
-1, Installation: Clone this repository to your local machine.
-2. Setup: 
-    * Open the cloned repository in Visual Studio
-    * 
-
 # Files
 In the main branch, these files and directories exist:
 * .vscode: Some needed materials for Visual Studio
@@ -34,6 +28,24 @@ In the main branch, these files and directories exist:
 * NewData/notebooks: Our **final** working program. Run **this** one!
 * Progress: Contains all of the files we had worked on in the semester
 * README.md: You are here!
+
+# Getting Started
+## Prerequisites
+1. **Python Environment**: Ensure you have Python 3.8 or higher installed
+2. **Dependencies**:
+3. **Installation**: Clone this repository to your local machine.
+
+## Project Structure
+
+The project directoroy includes the following:
+* notebooks/: Main project folder containing all resources and scripts
+   * `data_preprocessing.ipynb`: Notebook for cleaning and preprocessing the dataset
+   * `features_dataset.csv`: Dataset with extracted features for training the model.
+   * `metadata_dataset.csv`; Metadata associated with the dataset
+   * `mood_prediction_model.pth`: Pre-trained neural network model for mood classification.
+   * `NN.ipynb`: Notebook for training the neural network.
+   * `testing_model.ipynb`: Notebook for testing and evaluating the model.
+   * `resources/dataset.csv`: Original raw dataset from Kaggle.
 
 # References/Acknowledgments:
 [1] [OpenAI. Chatgpt](https://chatgpt.com/?model=gpt-4o-mini): Gpt-4 model. Accessed: 2024
