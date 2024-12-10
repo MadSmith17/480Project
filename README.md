@@ -82,7 +82,7 @@ Spotify typically recommends songs based only on what users have listened to or 
 
 The project directory includes the following:
 
-`NewData/notebooks/`: Main project folder containing all resources and scripts
+`NewData/notebooks/`: Main project folder containing all resources and scripts:
 
    * `data_preprocessing.ipynb`: Notebook for cleaning and preprocessing the dataset
    * `features_dataset.csv`: Dataset with extracted features for training the model.
