@@ -42,18 +42,21 @@ We used the [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipan
 
 ---
 
-# Files
-In the main branch, these files and directories exist:
-* .vscode: Some needed materials for Visual Studio
-* AllMoodPlaylist: This folder should be in the "Progress" folderm but is too large to be officially placed there.
-* NewData/notebooks: Our **final** working program. Run **this** one!
-* Progress: Contains all of the files we had worked on in the semester
-* README.md: You are here!
+##Files
+### Project Directory:
+* **`.vscode`**: Some needed materials for Visual Studio
+* **`AllMoodPlaylist`**: This folder should be in the "Progress" folderm but is too large to be officially placed there.
+* **`NewData/notebooks`**: Our **final** working program. Run **this** one!
+* **`Progress`**: Contains all of the files we had worked on in the semester
+* **`README.md`**: You are here!
 
-# Getting Started
-## Prerequisites
-1. **Python Environment**: Ensure you have Python 3.8 or higher installed
-2. **Dependencies**:
+---
+
+## Getting Started
+
+### Prerequisites:
+1. **Python Environment**: Ensure Python 3.8 or higher is installed
+2. **Required Libraries**:
    * `numpy`
    * `pandas`
    * `scikit-learn`
@@ -61,6 +64,8 @@ In the main branch, these files and directories exist:
    * `torch`
    * `torchvision`
    * `tqdm`
+
+---
 
 ## Project Structure
 
