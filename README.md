@@ -140,15 +140,15 @@ The project directory includes the following:
 1. Open `testing_model.ipynb`.
    
 2. Run all cells to:
-* Normalize features using scaler.pkl.
-* Predict moods for tracks in metadata_dataset.csv using mood_prediction_model.pth.
-* Map numerical predictions to readable labels using label_encoder.pkl.
+  * Normalize features using scaler.pkl.
+  * Predict moods for tracks in metadata_dataset.csv using mood_prediction_model.pth.
+  * Map numerical predictions to readable labels using label_encoder.pkl.
 
 3. Review Outputs:
-* Performance Metrics: Classification report, confusion matrix, accuracy/loss graphs.
-* Generated Playlists: Randomized playlists based on selected mood.
+  * Performance Metrics: Classification report, confusion matrix, accuracy/loss graphs.
+  * Generated Playlists: Randomized playlists based on selected mood.
   
-4 View visualizations like our the mood distribution chart.
+4. View visualizations like our the mood distribution chart.
 
 
 ### Example User Interaction:
@@ -215,17 +215,17 @@ The project directory includes the following:
 ### Model Testing and Playlist Generation
 1. **Normalization**: Scaled features in `metadata_dataset.csv` using `scaler.pkl`.
 2. **Mood Prediction**:
-* Used mood_prediction_model.pth to classify tracks by mood.
-* Mapped numerical predictions back to mood labels with label_encoder.pkl.
+  * Used mood_prediction_model.pth to classify tracks by mood.
+  * Mapped numerical predictions back to mood labels with label_encoder.pkl.
 3. **Evaluation**:
-* Generated:
-- Classification Report: Precision, recall, and F1-score for each mood.
-- Confusion Matrix: Visualized mood classification accuracy.
+  * Generated:
+    - Classification Report: Precision, recall, and F1-score for each mood.
+    - Confusion Matrix: Visualized mood classification accuracy.
 4. **Interactive Playlist Function**:
-* Allows users to:
-  - Select a mood from predictions.
-  - Randomly generate playlists of up to 10 songs.
-  - View playlist details, including track name, artist, and album.
+  * Allows users to:
+    - Select a mood from predictions.
+    - Randomly generate playlists of up to 10 songs.
+    - View playlist details, including track name, artist, and album.
 5. **Visualization**:
 * Created a mood distribution chart showing the number of tracks per mood.
 
