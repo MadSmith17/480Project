@@ -97,6 +97,7 @@ The project directory includes the following:
 ### Step 1: Clone the repository to your local machine
 
 ### Step 2: Preprocess the Data (Optional)
+
   1. Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
   2. Run each cell to:
       * Clean the raw dataset (`resources/dataset.csv`).
@@ -109,12 +110,14 @@ The project directory includes the following:
 ---
 
 ### Step 3: Train the Neural Network (Optional)
+
    1. Open `NN.ipynb`.
    2. Run all cells to train the neural network using `features_dataset.csv`.
    3. This will overwrite `mood_prediction_model.pth` with a newly trained model.
 ---
 
 ### Step 4: Test and Evaluate the Model
+
    1. Open `testing_model.ipynb`.
    2. Run all cells to
       * Load the pre-trained model `mood_prediction_model.pth`.
