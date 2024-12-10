@@ -101,7 +101,6 @@ The project directory includes the following:
   1. Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
   
   2. Run each cell to:
-     
       * Clean the raw dataset (`resources/dataset.csv`).
       * Generate:
          * `features_dataset.csv`: Extracted features for training the neural network. Saved in the `notebooks` directory.
@@ -125,7 +124,7 @@ The project directory includes the following:
    1. Open `testing_model.ipynb`.
    
    2. Run all cells to
-      
+
       * Load the pre-trained model `mood_prediction_model.pth`.
       * Evaluate the model on test data from `features_dataset.csv`.
    
