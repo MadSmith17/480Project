@@ -112,17 +112,23 @@ The project directory includes the following:
 ### Step 3: Train the Neural Network (Optional)
 
    1. Open `NN.ipynb`.
+   
    2. Run all cells to train the neural network using `features_dataset.csv`.
+   
    3. This will overwrite `mood_prediction_model.pth` with a newly trained model.
 ---
 
 ### Step 4: Test and Evaluate the Model
 
    1. Open `testing_model.ipynb`.
+   
    2. Run all cells to
+      
       * Load the pre-trained model `mood_prediction_model.pth`.
       * Evaluate the model on test data from `features_dataset.csv`.
+   
    3. Generated Outputs:
+      
       * Classification Report: Provides precision, recall, and F1-score for each mood category.
       * Confusion Matrices: Visualizes how well the model distinguishes between moods
       * Accuracy and Loss graphs: 
