@@ -83,6 +83,8 @@ The project directory includes the following:
  
 ## Steps to Run the Project
 
+---
+
 ### Step 1: Clone the repository to your local machine
 
 ### Step 2: Preprocess the Data (Optional)
