@@ -33,12 +33,18 @@ In the main branch, these files and directories exist:
 ## Prerequisites
 1. **Python Environment**: Ensure you have Python 3.8 or higher installed
 2. **Dependencies**:
-3. **Installation**: Clone this repository to your local machine.
+   * `numpy`
+   * `pandas`
+   * `scikit-learn`
+   * `seaborn`
+   * `torch`
+   * `torchvision`
+   * `tqdm`
 
 ## Project Structure
 
-The project directoroy includes the following:
-* notebooks/: Main project folder containing all resources and scripts
+The project directory includes the following:
+* NewData/notebooks/: Main project folder containing all resources and scripts
    * `data_preprocessing.ipynb`: Notebook for cleaning and preprocessing the dataset
    * `features_dataset.csv`: Dataset with extracted features for training the model.
    * `metadata_dataset.csv`; Metadata associated with the dataset
@@ -46,11 +52,32 @@ The project directoroy includes the following:
    * `NN.ipynb`: Notebook for training the neural network.
    * `testing_model.ipynb`: Notebook for testing and evaluating the model.
    * `resources/dataset.csv`: Original raw dataset from Kaggle.
+ 
+## Steps to Run the Project
+1. Clone the repository to your local machine
+2. Preprocess the Data (Optional, as the files have already been created)
+  a. Open the `data_preprocessing.ipynb` notebook in Jupyter Notebook, VSCode or any compatible IDE.
+  b. Run each cell to clean the raw dataset (`resources/dataset.csv`) and generate:
+    - `features_dataset.csv`: Extracted features.
+    - `metadata_dataset.csv`: Metadata for future analysis
+4. Train the Neural Network (Optional)
+   a. Open the `NN.ipynb` notebook.
+   b. Execute the cells to train the neural network using `features_dataset.csv` as input.
+     * This will overwrite `mood_prediction_model.pth` with a newly trained model.
+5. Test the Model
+  a. Open the `testing_model.ipynb` notebook.
+  b. Execute the cells to load `mood_prediction_model.pth` and evaluate it using the preprocessed features.
+    * This step generates visual outputs such as:
+        - Classification reports
+        - Confusion matrices
+        - Accuracy and loss graphs
+## Note
+* Output: All results, including evaluation metrics, should be saved within the notebook outputs or specific folders.
 
 # References/Acknowledgments:
 [1] [OpenAI. Chatgpt](https://chatgpt.com/?model=gpt-4o-mini): Gpt-4 model. Accessed: 2024
 
-[2] [Spotify Web API](https://developer.spotify.com/documentation/web-api) to access and manage Spotify's music data (before it accesibility became limited)
+[2] [Spotify Web API](https://developer.spotify.com/documentation/web-api) to access and manage Spotify's music data (before it accessibility became limited)
 
 [3] [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) Kaggle. Retrieved [11/28/2024]
 
