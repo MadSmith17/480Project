@@ -101,7 +101,7 @@ The project directory includes the following:
   2. Run each cell to:
       * Clean the raw dataset (`resources/dataset.csv`).
       * Generate:
-         * `features_dataset.csv`: Extracted features, saved in the `notebooks` directory.
+         * `features_dataset.csv`: Extracted features for training the neural network. saved in the `notebooks` directory.
          * `metadata_dataset.csv`: Metadata for future analysis, saved in the same directory.
 
 ***Note**: This step is optional as these files already exist.*
@@ -111,9 +111,7 @@ The project directory includes the following:
 ### Step 3: Train the Neural Network (Optional)
    1. Open `NN.ipynb`.
    2. Run all cells to train the neural network using `features_dataset.csv`.
-     * This will overwrite `mood_prediction_model.pth` with a newly trained model.
-   3. The training process:
-      * Uses extracted features as input to the model.
+   3. This will overwrite `mood_prediction_model.pth` with a newly trained model.
 ---
 
 ### Step 4: Test and Evaluate the Model
@@ -122,32 +120,22 @@ The project directory includes the following:
       * Load the pre-trained model `mood_prediction_model.pth`.
       * Evaluate the model on test data from `features_dataset.csv`.
    3. Generated Outputs:
-      * Classification Report: Displays model performance metrics (precision, recall, F1-score, etc.).
-      * Confusion Matrices: Matrix visualizing the model's predictions vs. actual labels
-      * Accuracy and Loss graphs: Plots tracking the model's training/testing performance
+      * Classification Report
+      * Confusion Matrices
+      * Accuracy and Loss graphs
      
 ---
 
 ### Step 5: Generate Playlists
-1. Run the Playlist Generation Function:
-   * Open `testing_model.ipynb`.
-   * Locate the playlist generation function near the end of the notebook.
-   * Execute the cells to load the model `mood_prediction_model.pth` and prepare the dataset `features_dataset.csv`.
-2. How the function works:
-   * The function uses the **`predicted_mood column`** from the dataset to group songs into predefined mood categories:
-       * `1`: Happy
-       * `2`: Sad
-       * `3`: Calm
-       * `4`: Energetic
-   * When prompted, the user selects a mood by entering the corresponding number (ex. `1` for `happy`)
-3. After Selection:
-   * The function filters songs in the dataset based on the selected mood
-   * From the filtered songs, a subset is randomly selected to form the playlist
-   * Each song in the playlist is displayed with the following details:
-      * **Track Name**: The name of the song.
-      * **Artists**: The song's artist(s).
-      * **Album Name**: The album the song belongs to.
-4. Example User Interaction:
+1. Open `testing_model.ipynb`
+2. Locate the playlist generation function near the end of the notebook.
+3. Run the cells to load the model `mood_prediction_model.pth` and prepare the dataset `features_dataset.csv`.
+4. Select a mood, and the function will:
+   * Filter songs based on the mood.
+   * Randomly select songs for a playlist.
+   * Output song details (Track Name, Artist, Album).
+
+6. Example User Interaction:
 
 <img src="Progress/exampleoutput.png" alt="output"/>
 
@@ -155,17 +143,26 @@ The project directory includes the following:
 * Randomization ensures that each time a playlist is generated, the results are varied, even for the same mood category.
 * Ensure the dataset and required models are properly loaded before running the playlist generation function to avoid errors.
 
+---
+
 ## Analysis and Model Details
 
+### Introduction to Features
+* **Valence**: Measures positivity in a track (e.g., happy vs. sad).
+* **Energy**: Reflects intensity and activity (e.g., calm vs. energetic).
+* **Tempo**: Measures speed, contributing to mood categorization.
+
+*These features were chosen for their relevance to mood classification.*
+
 ### Dataset and Preprocessing
-* **Dataset**: Sourced from Kaggle with 114,000 Spotify tracks.
-* **Features**: Key attributes such as valence, energy, tempo, danceablity, and more were used to classify moods.
+* **Dataset**: [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) - Sourced from Kaggle with 114,000 Spotify tracks.
 * **Preprocessing**:
   1. Selected relevant features required for mood classification.
   2. Encoded mood labels numerically
   3. Created mood labels using thresholds (e.g. valence > 0.5 = happy)
   4. Scaled features to improve neural network performance.
-  5. Saved preprocessed data into `features_dataset.csv` for training and `metadata_dataset.csv` for analysis.
+  5. Created datasets for training and evaluation
+  6. Saved preprocessed data into `features_dataset.csv` for training and `metadata_dataset.csv` for analysis.
 
 ---
 
@@ -194,8 +191,14 @@ The project directory includes the following:
 ---
 
 ## Future Considerations
-  * **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
-  * **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
+* **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
+* **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
+* **Dynamic Mood Tracking**: Incorporate real-time user feedback to refine playlists dynamically.
+* **Expand Dataset**: Integrate additional datasets to include a broader range of tracks and genres.
+* **Web/App Integration**: Develop a web or mobile interface to make playlist generation user-friendly.
+* **Collaborative Playlists**: Allow users to share mood-based playlists with friends.
+* **Genre Customization**: Add options for users to filter playlists by specific genres.
+* **Language Support**: Expand to include multilingual song classification and recommendations.
 
 
 # References/Acknowledgments:
