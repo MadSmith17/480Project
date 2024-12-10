@@ -1,5 +1,7 @@
 # 480 Semester Project: Mood.fm
 
+<img src="Progress/moody.jpg" alt="Logo" width="300"/>
+
 # Members:
 * Carolina Mancina
 * Madelyn Smith
