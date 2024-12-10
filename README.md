@@ -92,9 +92,7 @@ The project directory includes the following:
    * `testing_model.ipynb`: Notebook for testing and evaluating the model.
    * `resources/dataset.csv`: Original raw dataset from Kaggle.
  
-## Steps to Run the Project
-
----
+## Steps to Run the Project:
 
 ### Step 1: Clone the repository to your local machine
 
