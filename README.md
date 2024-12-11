@@ -268,10 +268,10 @@ The project directory includes the following:
 **User Interaction**:
 
 1. The user is prompted to select a mood from the available categories:
-  * **1**: Happy
-  * **2**: Sad
-  * **3**: Calm
-  * **4**: Energetic
+**1**: Happy
+**2**: Sad
+**3**: Calm
+**4**: Energetic
 2. Based on the selected mood:
   * A playlsit of (up to) **10** tracks from that category is generated and displayed.
 
