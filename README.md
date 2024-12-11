@@ -132,7 +132,7 @@ The project directory includes the following:
 
 ### Step 4: Test the Model and Generate Playlists
 
-#### Testing
+#### Testing:
 
 1. Open `testing_model.ipynb`.
    
@@ -176,17 +176,21 @@ The project directory includes the following:
     
 ####  **Preprocessing Steps**:
 1. **Feature Selection**:
-   * Extracted key attributes required for mood classification (e.g., valence, energy, tempo, danceability).
-2. **Mood Encoding**:
-   * Assigned moods based on thresholds for valence and energy (e.g., valence > 0.5 = happy).
-3. **Normalization**:
-   * Applied scaler.pkl to ensure features were on consistent scales for neural network input.
-4. **Label Mapping**:
-   * Encoded mood categories numerically and saved the mapping in label_encoder.pkl.
-5. **Dataset Creation**:
-   * Generated separate datasets for training and evaluation.
-6. **Data Storage**:
-   * Saved processed data into:
+   * Extracted key attributes required for mood classification (e.g., valence, energy, tempo).
+2. **Mood Assignment**:
+   * Assigned moods (happy, sad, calm, energetic) based on thresholds for valence and energy:
+     * *Happy*: High valence and medium-to-high energy.
+     * *Sad*: Low valence and low energy.
+     * *Calm*: Medium valence and low energy.
+     * *Energetic*: High valence and high energy
+3. **Data Cleaning**:
+     * Removed outliers and tracks with missing data.
+5. **Normalization**:
+     * Scaled numeric features using the StandardScaler (scaler.pkl) to ensure consistent input scales.
+6. **Label Encoding**:
+     * Encoded mood categories into numerical labels using `LabelEncoder` (`label_encoder.pkl`).
+6. **Dataset Creation/Storage**:
+   * Created two datasets:
       - `features_dataset.csv`: For training the neural network.
       - `metadata_dataset.csv`: For additional analysis and metadata.
 
@@ -198,39 +202,64 @@ The project directory includes the following:
     * First Layer: 64 neurons, ReLU activation.
     * Second Layer: 32 neurons, ReLU activation
 * **Output Layer**: 4 neurons, representing the four mood categories: Happy, Sad, Calm, and Energetic.
+* **Loss Function**: CrossEntropyLoss.
+* **Optimizer**: Adam optimizer.
 
 ---
 
 ### Training Process
-1. **Training Dataset**: 80% training, 20% testing split.
+
+1. **Dataset Splits**:
+  * Training Dataset: 64% of data.
+  * Validation Dataset: 16% of data for early stopping and monitoring.
+  * Testing Dataset: 20% for final evaluation.
 2. **Forward Pass**:
    * Input: Feature vector from the dataset (e.g., valence, tempo).
    * Output: Predicted probabilities for each mood category.
-3. **Loss Calculation**:
-   * Used CrossEntropyLoss to calculate the error between predicted and actual moods.
-4. **Backpropagation**:
-   * Calculated gradients to adjust the weights of the network.
-   * Optimized using Adam optimizer.
+3. **Loss and Backpropagation**:
+   * Loss Function: CrossEntropyLoss to calculate the error between predicted and actual moods.
+   * Optimizer: Adam optimizer to adjust weights.
+4. **Training Epochs**:
+   * Iterated for 50 epochs
+   * Tracked training and validation losses
 5. **Evaluation Metrics**:
    * Achieved a test accuracy of **99.37%**.
    * Generated accuracy and loss graphs to track performance.
 
 ### Model Testing and Playlist Generation
-1. **Normalization**: Scaled features in `metadata_dataset.csv` using `scaler.pkl`.
-2. **Mood Prediction**:
-  * Used mood_prediction_model.pth to classify tracks by mood.
-  * Mapped numerical predictions back to mood labels with label_encoder.pkl.
-3. **Evaluation**:
-  * Generated:
-    - Classification Report: Precision, recall, and F1-score for each mood.
-    - Confusion Matrix: Visualized mood classification accuracy.
-4. **Interactive Playlist Function**:
-  * Allows users to:
-    - Select a mood from predictions.
-    - Randomly generate playlists of up to 10 songs.
-    - View playlist details, including track name, artist, and album.
-5. **Visualization**:
-* Created a mood distribution chart showing the number of tracks per mood.
+
+**Mood Prediction**:
+
+1. Input Normalization::
+  * Scaled features in `metadata_dataset.csv` using `scaler.pkl`
+2. **Prediction**:
+    * The trained neural network (`mood_prediction_model.pth`) classifies each track into one of the four mood categories.
+    * Predicted mood labels are mapped back to their readable labels (happy, calm, sad, energetic) using `label_encoder.pkl`.
+
+**Evaluation:**
+1. Performance Metrics:
+  * Classification Report: Precision, recall, and F1-score for each mood.
+  * Confusion Matrix: Visualized as a heatmap (`confusion_matrix.png`).
+2. Feature Visualization:
+  * Pairplot of key features colored based on mood.
+  * Mood distriibution chart showing the number of tracks per mood.
+
+**Playlist Generation**:
+
+1. Tracks are grouped by their predicted mood catgories.
+2. For each mood, playlists are displayed in the cell output. Details include:
+  * **Track Name**
+  * **Artist**
+  * **Album**
+
+#### User-Specific Playlists:
+1. The user is prompted to select a mood from the available categories:
+  * **1**: Happy
+  * **2**: Sad
+  * **3**: Calm
+  * **4**: Energetic
+2. Based on the selected mood:
+  * A playlsit of (up to) **10** tracks from that category is generated and displayed.
 
 
 ---
