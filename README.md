@@ -165,15 +165,16 @@ The project directory includes the following:
 ### Features
 * **Valence**: Measures positivity in a track (e.g., happy vs. sad).
 * **Energy**: Reflects intensity and activity (e.g., calm vs. energetic).
-* **Danceability**: How suitable a track is for dancing. Used in training.
-* **Loudness**: Overall sound intensity, measured in decibels. Used in training.
-* **Speechiness**: Presence of spoken words in a track. Used in training.
-* **Acousticness**: Likelihood of a track being acoustic. Used in training.
-* **Instrumentalness**: Indicates if a track has no vocals. Used in training.
-* **Liveness**: Detects if the track is a live recording. Used in training.
-* **Key**: Musical key of the track. Used in training.
-* **Duration (ms)**: Length of the track in milliseconds. Used in training.
-* **Popularity**: Spotify score indicating how often a track is played. Used in training.
+* **Tempo**: Speed of a track.
+* **Danceability**: How suitable a track is for dancing.
+* **Loudness**: Overall sound intensity, measured in decibels.
+* **Speechiness**: Presence of spoken words in a track.
+* **Acousticness**: Likelihood of a track being acoustic.
+* **Instrumentalness**: Indicates if a track has no vocals.
+* **Liveness**: Detects if the track is a live recording.
+* **Key**: Musical key of the track.
+* **Duration (ms)**: Length of the track in milliseconds.
+* **Popularity**: Spotify score indicating how often a track is played.
 
 *Valence and Energy were the key features for mood classification.*
 
