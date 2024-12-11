@@ -225,6 +225,8 @@ The project directory includes the following:
 5. **Evaluation Metrics**:
    * Achieved a test accuracy of **99.37%**.
    * Generated accuracy and loss graphs to track performance.
+     
+---
 
 ### Model Testing and Playlist Generation
 
@@ -251,8 +253,9 @@ The project directory includes the following:
   * **Track Name**
   * **Artist**
   * **Album**
+    
+**User Interaction**:
 
-#### User-Specific Playlists:
 1. The user is prompted to select a mood from the available categories:
   * **1**: Happy
   * **2**: Sad
