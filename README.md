@@ -181,7 +181,7 @@ The project directory includes the following:
 * **Duration (ms)**: Length of the track in milliseconds.
 * **Popularity**: Spotify score indicating how often a track is played.
 
-*Valence and Energy were the key features for mood classification.*
+*Valence and Energy were the primary features for mood classification.*
 
 *These features were chosen for their relevance to mood classification.*
 
@@ -194,11 +194,11 @@ The project directory includes the following:
 1. **Feature Selection**:
    * Extracted key attributes required for mood classification (e.g., valence, energy, tempo).
 2. **Mood Assignment**:
-   * Assigned moods (happy, sad, calm, energetic) based on thresholds for valence and energy:
-     * *Happy*: High valence and medium-to-high energy.
-     * *Sad*: Low valence and low energy.
-     * *Calm*: Medium valence and low energy.
-     * *Energetic*: High valence and high energy
+   * Moods were assigned based on thresholds for valence and energy:
+     * *Happy*: High valence (> 0.6) and medium-to-high energy (> 0.5)
+     * *Sad*: Low valence (< 0.4) and low energy (< 0.5)
+     * *Calm*: Medium valence (0.4–0.6) and low energy (< 0.5)
+     * *Energetic*: High valence (> 0.6) and high energy (> 0.7)
 3. **Data Cleaning**:
      * Removed outliers and tracks with missing data.
 5. **Normalization**:
@@ -254,13 +254,13 @@ The project directory includes the following:
     * The trained neural network (`mood_prediction_model.pth`) classifies each track into one of the four mood categories.
     * Predicted mood labels are mapped back to their readable labels (happy, calm, sad, energetic) using `label_encoder.pkl`.
 
-**Evaluation:**
-1. Performance Metrics:
+**Evaluation and Visualizations**
+1. **Performance Metrics**:
   * Classification Report: Precision, recall, and F1-score for each mood.
-  * Confusion Matrix: Visualized as a heatmap (`confusion_matrix.png`).
-2. Feature Visualization:
-  * Pairplot of key features colored based on mood.
-  * Mood distriibution chart showing the number of tracks per mood.
+  * Confusion Matrix: Displayed as a heatmap (`confusion_matrix.png`).
+2. **Visualization**:
+  * **Mood Distribution Chart**: Shows the number of tracks predicted for each mood.
+  * **Feature Pairplot**: Highlights relationships between key features like valence, energy, and danceability, colored by mood.
 
 **Playlist Generation**:
 
@@ -277,8 +277,7 @@ The project directory includes the following:
 **2**: Sad
 **3**: Calm
 **4**: Energetic
-2. Based on the selected mood:
-  * A playlist of (up to) **10** tracks from that category is generated and displayed.
+2. Based on the selected mood, a playlist of (up to) **10** tracks from that category is generated and displayed.
 
 ---
 
