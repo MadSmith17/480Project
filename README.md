@@ -42,7 +42,7 @@
 We aim to create a website that generates playlists of recommended songs based on the user's current mood, genres, and/or favorite artists. Our goal is to outperform platforms like Spotify or YouTube Music by curating better recommendations, especially for discovering new songs.
 
 ### Why Mood.fm?
-Spotify typically recommends songs based only on what users have listened to or liked, rarely introducing new music. Mood.fm seeks to improve upon this by leveraging moods and user input to create more personalized recommendations.
+Spotify typically recommends songs based only on what users have listened to or liked, rarely introducing new music. Mood.fm hopes to improve this by utilizing moods and user input to create more personalized recommendations.
 
 ### Goal:
 1. **Playlist Recommendations**: Curated by mood.
