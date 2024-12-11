@@ -157,6 +157,8 @@ The project directory includes the following:
 
 3. Choose one of the above, and a playlist of (10) songs will be generated.
 
+---
+
 ### Example User Interaction:
 
 <img src="Progress/exampleoutput.png" alt="output"/>
