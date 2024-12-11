@@ -162,10 +162,20 @@ The project directory includes the following:
 
 ## Analysis and Model Details
 
-### Introduction to Features
+### Features
 * **Valence**: Measures positivity in a track (e.g., happy vs. sad).
 * **Energy**: Reflects intensity and activity (e.g., calm vs. energetic).
-* **Tempo**: Measures speed, contributing to mood categorization.
+* **Danceability**: How suitable a track is for dancing. Used in training.
+* **Loudness**: Overall sound intensity, measured in decibels. Used in training.
+* **Speechiness**: Presence of spoken words in a track. Used in training.
+* **Acousticness**: Likelihood of a track being acoustic. Used in training.
+* **Instrumentalness**: Indicates if a track has no vocals. Used in training.
+* **Liveness**: Detects if the track is a live recording. Used in training.
+* **Key**: Musical key of the track. Used in training.
+* **Duration (ms)**: Length of the track in milliseconds. Used in training.
+* **Popularity**: Spotify score indicating how often a track is played. Used in training.
+
+*Valence and Energy were the key features for mood classification.*
 
 *These features were chosen for their relevance to mood classification.*
 
@@ -264,18 +274,18 @@ The project directory includes the following:
 2. Based on the selected mood:
   * A playlsit of (up to) **10** tracks from that category is generated and displayed.
 
-
 ---
 
 ## Future Considerations
 1. **Web/App Integration**: The next logical step - to develop a web or mobile interface to make playlist generation user-friendly.
-2. **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
-3. **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
-4. **Dynamic Mood Tracking**: Incorporate real-time user feedback to refine playlists dynamically.
-5. **Expand Dataset**: Integrate additional datasets to include a broader range of tracks and genres.
-6. **Collaborative Playlists**: Allow users to share mood-based playlists with friends.
-7. **Genre Customization**: Add options for users to filter playlists by specific genres.
-8. **Language Support**: Expand mood classification to include songs in multiple languages.
+2. **Additional features**: Incorporate more features we have access to within the dataset to further refine our mood predictions.
+3. **Save Playlist**: Modify the function to save the generated playlist as a .csv file for future use
+4. **Playlist Length**: Customize the number of songs in the playlist by modifying the random selection logic.
+5. **Dynamic Mood Tracking**: Incorporate real-time user feedback to refine playlists dynamically.
+6. **Expand Dataset**: Integrate additional datasets to include a broader range of tracks and genres.
+7. **Collaborative Playlists**: Allow users to share mood-based playlists with friends.
+8. **Genre Customization**: Add options for users to filter playlists by specific genres.
+9. **Language Support**: Expand mood classification to include songs in multiple languages.
 
 ## Summary
 
