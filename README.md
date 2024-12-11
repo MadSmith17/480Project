@@ -278,7 +278,7 @@ The project directory includes the following:
 **3**: Calm
 **4**: Energetic
 2. Based on the selected mood:
-  * A playlsit of (up to) **10** tracks from that category is generated and displayed.
+  * A playlist of (up to) **10** tracks from that category is generated and displayed.
 
 ---
 
