@@ -50,8 +50,7 @@ Spotify typically recommends songs based only on what users have listened to or 
 3. **Mood Tracking**: Users can provide feedback on their mood after listening to songs, genres, or albums to further refine recommendations.
 
 ### Challenges and Adaptations:
-- Initially, we incorporated Spotify's Web API to fetch real-time music data. Unfortunately, due to recent changes in Spotify's API accessibility ([announcement](https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api), [The Verge](https://www.theverge.com/2024/12/5/24311523/spotify-locked-down-apis-developers)), we shifted to using the Kaggle dataset instead. Check out our [Progress](https://github.com/MadSmith17/480Project/tree/main/Progress) folder to see a semester's worth of work we put into building our model using the API.
-
+- Initially, we incorporated Spotify's Web API to fetch real-time music data. Unfortunately, due to recent changes in Spotify's API accessibility ([announcement](https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api), [The Verge](https://www.theverge.com/2024/12/5/24311523/spotify-locked-down-apis-developers)), we shifted to using the Kaggle dataset instead. Check out our [Progress](https://github.com/MadSmith17/480Project/tree/main/Progress) folder for a detailed look at the semester-long effort we dedicated to building and refining our model with the Spotify API before transitioning to the Kaggle dataset.
 ---
 
 ## Project Directory:
