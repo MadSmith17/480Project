@@ -256,11 +256,11 @@ The project directory includes the following:
 
 **Evaluation and Visualizations**
 1. **Performance Metrics**:
-  * Classification Report: Precision, recall, and F1-score for each mood.
-  * Confusion Matrix: Displayed as a heatmap (`confusion_matrix.png`).
+    * Classification Report: Precision, recall, and F1-score for each mood.
+    * Confusion Matrix: Displayed as a heatmap (`confusion_matrix.png`).
 2. **Visualization**:
-  * **Mood Distribution Chart**: Shows the number of tracks predicted for each mood.
-  * **Feature Pairplot**: Highlights relationships between key features like valence, energy, and danceability, colored by mood.
+    * **Mood Distribution Chart**: Shows the number of tracks predicted for each mood.
+    * **Feature Pairplot**: Highlights relationships between key features like valence, energy, and danceability, colored by mood.
 
 **Playlist Generation**:
 
