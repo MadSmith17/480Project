@@ -148,14 +148,10 @@ The project directory includes the following:
 #### Generate Playlists:
 1. Locate the function `generate_user_playlist()` underneath the section labeled "Playlist Generation" (at the bottom)
 2. Once running, user is prompted to input a number corresponding to a specific mood:
-
-**1**: Happy
-
-**2**: Sad
-
-**3**: Calm
-
-**4**: Energetic
+    -**1**: Happy
+    -**2**: Sad
+    -**3**: Calm
+    -**4**: Energetic
 
 3. Choose one of the above, and a playlist of (10) songs will be generated.
 
