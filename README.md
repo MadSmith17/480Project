@@ -222,9 +222,9 @@ The project directory includes the following:
 ### Training Process
 
 1. **Dataset Splits**:
-  * Training Dataset: 64% of data.
-  * Validation Dataset: 16% of data for early stopping and monitoring.
-  * Testing Dataset: 20% for final evaluation.
+   * Training Dataset: 64% of data.
+   * Validation Dataset: 16% of data for early stopping and monitoring.
+   * Testing Dataset: 20% for final evaluation.
 2. **Forward Pass**:
    * Input: Feature vector from the dataset (e.g., valence, tempo).
    * Output: Predicted probabilities for each mood category.
