@@ -232,10 +232,10 @@ The project directory includes the following:
    * Loss Function: CrossEntropyLoss to calculate the error between predicted and actual moods.
    * Optimizer: Adam optimizer to adjust weights.
 4. **Training Epochs**:
-   * Iterated for 50 epochs
-   * Tracked training and validation losses
+   * 50 epochs
+   * Tracked both training and validation losses
 5. **Evaluation Metrics**:
-   * Achieved a test accuracy of **99.37%**.
+   * Achieved a test accuracy score of **99.37%**.
    * Generated accuracy and loss graphs to track performance.
      
 ---
@@ -244,7 +244,7 @@ The project directory includes the following:
 
 **Mood Prediction**:
 
-1. Input Normalization::
+1. **Input Normalization**::
   * Scaled features in `metadata_dataset.csv` using `scaler.pkl`
 2. **Prediction**:
     * The trained neural network (`mood_prediction_model.pth`) classifies each track into one of the four mood categories.
