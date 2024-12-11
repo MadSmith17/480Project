@@ -98,6 +98,8 @@ The project directory includes the following:
 
 1. Clone the repository to your local machine and open the project folder in VSCode.
 
+---
+
 ### Step 2: Preprocess the Data (Optional)
 
 1. Open `data_preprocessing.ipynb`.
