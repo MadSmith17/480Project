@@ -248,8 +248,8 @@ The project directory includes the following:
 
 **Mood Prediction**:
 
-1. **Input Normalization**::
-  * Scaled features in `metadata_dataset.csv` using `scaler.pkl`
+1. **Input Normalization**:
+    * Scaled features in `metadata_dataset.csv` using `scaler.pkl`
 2. **Prediction**:
     * The trained neural network (`mood_prediction_model.pth`) classifies each track into one of the four mood categories.
     * Predicted mood labels are mapped back to their readable labels (happy, calm, sad, energetic) using `label_encoder.pkl`.
