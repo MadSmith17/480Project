@@ -254,7 +254,7 @@ The project directory includes the following:
     * The trained neural network (`mood_prediction_model.pth`) classifies each track into one of the four mood categories.
     * Predicted mood labels are mapped back to their readable labels (happy, calm, sad, energetic) using `label_encoder.pkl`.
 
-**Evaluation and Visualizations**
+**Evaluation and Visualizations**:
 1. **Performance Metrics**:
     * Classification Report: Precision, recall, and F1-score for each mood.
     * Confusion Matrix: Displayed as a heatmap (`confusion_matrix.png`).
