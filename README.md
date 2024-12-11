@@ -268,7 +268,7 @@ The project directory includes the following:
 2. For each mood, playlists are displayed in the cell output. Details include:
     * **Track Name**
     * **Artist**
-    * * **Album**
+    * **Album**
     
 **User Interaction**:
 
