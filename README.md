@@ -266,9 +266,9 @@ The project directory includes the following:
 
 1. Tracks are grouped by their predicted mood catgories.
 2. For each mood, playlists are displayed in the cell output. Details include:
-  * **Track Name**
-  * **Artist**
-  * **Album**
+    * **Track Name**
+    * **Artist**
+    * * **Album**
     
 **User Interaction**:
 
